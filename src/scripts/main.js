@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (navToggle && siteNav) {
     navToggle.addEventListener('click', () => {
       const isOpen = siteNav.classList.toggle('is-open');
+      navToggle.classList.toggle('is-open', isOpen);
       navToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         if (siteNav.classList.contains('is-open')) {
           siteNav.classList.remove('is-open');
+          navToggle.classList.remove('is-open');
           navToggle.setAttribute('aria-expanded', 'false');
         }
       });
