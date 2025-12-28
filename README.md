@@ -1,36 +1,32 @@
-# GitHub Pages Portfolio Scaffold
+# Minimal GitHub Pages Portfolio
 
-A future-proof folder layout for a personal portfolio. The UI is a simple "Hello World" for now, but the directory tree mirrors what a full-featured site will need (content, data, automation, docs, and tests).
+A lightweight starter for a personal portfolio. The UI is still a simple "Hello World", but the remaining folders focus entirely on visuals and assets you'll grow over time.
 
-## What's Inside
+## What's Inside Now
 
 ```
 root
-├── index.html             # Temporary landing page
-├── site.config.json       # Shared metadata for generators/scripts
-├── src/                   # Source-of-truth for UI code, styles, and assets
-├── public/                # Static files copied verbatim to the site root
-├── data/                  # Structured JSON powering dynamic sections
-├── content/               # Plain-language copy, media, and translations
-├── docs/                  # Strategy, notes, and planning artifacts
-├── config/                # Environment, deployment, and SEO settings
-├── scripts/               # Build/deploy/analytics automation
-├── tests/                 # Unit + integration + e2e test suites
-└── .github/workflows/     # GitHub Actions automations
+├── index.html          # Temporary landing page
+├── src/                # Styles, scripts, and future components
+│   ├── assets/         # Images, icons, fonts, videos
+│   ├── styles/         # global/base/layout/theme CSS
+│   └── scripts/        # Vanilla JS + modules
+├── public/             # Files copied directly to the site root
+├── LICENSE             # MIT by default
+├── README.md           # You are here
+└── .gitignore          # Keeps builds and OS cruft out of git
 ```
 
 ## Quick Start (GitHub Pages)
 
-1. Commit this repository and push it to GitHub.
-2. In **Settings → Pages**, choose **Deploy from branch** and pick `main` (or your default) with `/root`.
-3. Optionally connect the provided `.github/workflows/deploy.yml` to automate builds.
-4. Replace the placeholder `index.html`, CSS, and JS with your real portfolio when ready.
+1. Commit this repo and push it to GitHub.
+2. Open **Settings → Pages**, choose **Deploy from branch**, and select `main` + `/root`.
+3. Edit `index.html`, `src/styles/main.css`, and `src/scripts/main.js` to reflect your real portfolio story.
 
-## Roadmap Ideas
+## Next Design-Focused Steps
 
-- Convert `src/` into a static-site generator (Astro, Next.js static export, Eleventy, etc.).
-- Populate `data/` and `content/` from a CMS or simple markdown files.
-- Wire scripts in `scripts/` into package.json or PowerShell tasks.
-- Expand testing under `tests/` as components appear.
+- Flesh out sections under `src/sections/` and components under `src/components/` as layouts emerge.
+- Drop hero/preview assets into `src/assets/` and reference them from the HTML.
+- Add a bundler or static-site generator later if the project outgrows this simple setup.
 
 Happy building! 🚀
