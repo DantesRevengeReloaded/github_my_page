@@ -6,6 +6,8 @@
   --muted: #9c9cab;
   --accent: #4ad7d1;
   --card-border: rgba(255, 255, 255, 0.08);
+  --spark-emerald: rgba(132, 255, 210, 0.35);
+  --spark-amber: rgba(255, 221, 147, 0.45);
 }
 
 html {
@@ -146,6 +148,9 @@ body {
 }
 
 .hero-card:hover {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
   transform: translateY(-6px);
   border-color: var(--accent);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
@@ -155,6 +160,30 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.32em;
   font-size: 0.78rem;
+
+.hero-card::after {
+  content: '';
+  position: absolute;
+  inset: -40% auto auto -40%;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, var(--spark-emerald), transparent 70%);
+  opacity: 0;
+  transform: scale(0.8) rotate(10deg);
+  transition: opacity 250ms ease, transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-card--experience::after {
+  inset: auto -35% -35% auto;
+  background: radial-gradient(circle, var(--spark-amber), transparent 70%);
+}
+
+.hero-card:hover::after {
+  opacity: 1;
+  transform: scale(1.2) rotate(0deg);
+}
   margin-bottom: 16px;
   color: var(--accent);
 }
@@ -215,6 +244,19 @@ h1 {
 .xp-foot {
   font-size: 0.9rem;
   color: var(--muted);
+}
+
+.xp-ai {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.xp-ai .quote {
+  margin: 6px 0 0;
+  line-height: 1.6;
 }
 
 @keyframes heroCardEnter {
