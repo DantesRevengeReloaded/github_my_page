@@ -10,7 +10,12 @@
     <div class="shell">
       <header class="site-header">
         <div class="logo">Konstantinos L. Karakostas </div>
-        <nav class="site-nav">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="nav-toggle__line"></span>
+          <span class="nav-toggle__line"></span>
+        </button>
+        <nav class="site-nav" id="primary-nav">
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
