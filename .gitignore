@@ -1,0 +1,27 @@
+# Dependencies and caches
+node_modules/
+.pnpm-store/
+.turbo/
+.cache/
+dist/
+build/
+tmp/
+
+# Environment / credentials
+.env
+.env.*
+
+# Editors / OS
+.DS_Store
+Thumbs.db
+*.swp
+
+# Logs / reports
+*.log
+coverage/
+reports/
+
+# Static site outputs
+public/site/
+.next/
+out/
