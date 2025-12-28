@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap');
-
 :root {
   --bg: #030304;
   --bg-soft: #0c0c10;
@@ -7,6 +6,11 @@
   --muted: #9c9cab;
   --accent: #4ad7d1;
   --card-border: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 * {
@@ -19,8 +23,8 @@
   height: 1px;
   padding: 0;
   margin: -1px;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
+  overflow: hidden;
   border: 0;
 }
 
