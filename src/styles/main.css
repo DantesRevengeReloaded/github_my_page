@@ -60,6 +60,15 @@ body {
   text-transform: uppercase;
 }
 
+.logo-location {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-transform: none;
+}
+
 .nav-toggle {
   display: none;
   border: 1px solid var(--card-border);
