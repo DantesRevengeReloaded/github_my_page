@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Βιογραφικό Σημείωμα · Konstantinos L. Karakostas</title>
+  </head>
+  <body>
+    <h1>Βιογραφικό Σημείωμα</h1>
+    <p><strong>Ονοματεπώνυμο:</strong> Κωνσταντίνος Λ. Καρακόστας</p>
+    <p><strong>Ρόλος:</strong> Data Analyst & AI Product Builder</p>
+    <p><strong>Περίληψη:</strong> Σχεδιάζω και υλοποιώ λειτουργικά dashboards, AI πρωτότυπα και data workflows που βοηθούν οργανισμούς να παίρνουν αποφάσεις γρηγορότερα.</p>
+    <p><strong>Εμπειρία:</strong></p>
+    <ul>
+      <li>2019–σήμερα · Project Manager & Data Analyst · Legal services operations</li>
+      <li>2016–2019 · Business Analyst · Growth experimentation</li>
+    </ul>
+    <p><strong>Επικοινωνία:</strong> c.karakostas10@gmail.com · +30 693 123 4567</p>
+  </body>
+</html>

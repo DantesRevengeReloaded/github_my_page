@@ -3,6 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Konstantinos Karakostas is a data analyst and AI product builder shipping decision-grade dashboards, experiments, and augmentation workflows." />
+    <link rel="canonical" href="https://dantesrevengereloaded.github.io/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Konstantinos Karakostas · Data & AI" />
+    <meta property="og:title" content="Konstantinos Karakostas · Data & AI Product Builder" />
+    <meta property="og:description" content="A portfolio of operational dashboards, AI experiments, and workflow systems focused on measurable outcomes." />
+    <meta property="og:url" content="https://dantesrevengereloaded.github.io/" />
+    <meta property="og:image" content="https://github.com/DantesRevengeReloaded.png" />
+    <meta property="og:image:alt" content="Portrait of Konstantinos L. Karakostas" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="400" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Konstantinos Karakostas · Data & AI Product Builder" />
+    <meta name="twitter:description" content="Selected work, dashboards, and CV highlights from Konstantinos Karakostas." />
+    <meta name="twitter:image" content="https://github.com/DantesRevengeReloaded.png" />
+    <meta name="theme-color" content="#030304" />
     <title>Konstantinos</title>
     <link rel="icon" href="src/assets/icons/ksymbol.ico" type="image/x-icon" />
     <link rel="stylesheet" href="src/styles/main.css" />
@@ -20,13 +36,14 @@
         <nav class="site-nav" id="primary-nav">
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
+          <a href="#dashboards">Dashboards</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
 
       <main class="content">
         <section class="hero" id="about">
-          <div class="hero-card hero-card--idea">
+          <a class="hero-card hero-card--idea" href="https://github.com/DantesRevengeReloaded" target="_blank" rel="noreferrer">
             <div>
               <p class="eyebrow">Data Analyst & AI Product Builder</p>
               <h1>Trying to get Results with Data</h1>
@@ -34,13 +51,12 @@
                 A portfolio of experiments, prototypes, 
                 and tools where I explore how data and AI can solve real-world problems. 
                 I care about clarity over complexity, and products over demos.
-                "Solutions over Problems" 
+                "New Solutions, Not Problems" 
               </p>
               
             </div>
-            <button id="cta" class="ghost">See highlights</button>
-          </div>
-          <div class="hero-card hero-card--experience" aria-label="Experience summary">
+          </a>
+          <a class="hero-card hero-card--experience" href="https://www.linkedin.com/in/constantinoskarakostas/" target="_blank" rel="noreferrer" aria-label="Experience summary">
             <div class="xp-head">
               <p class="label">Assets</p>
               <span class="panel-pill">10+ yrs work experience</span>
@@ -67,47 +83,108 @@
             <div class="xp-foot">
               <p>Currently open for calm, purposeful products.</p>
             </div>
-          </div>
+          </a>
         </section>
 
         <section class="projects" id="projects">
-          <div class="section-heading">
-            <p class="eyebrow">Selected work</p>
-            <h2>Projects that matter</h2>
+          <div class="projects-shell">
+            <div class="section-heading">
+              <p class="eyebrow">Selected work</p>
+              <h2>Projects that matter</h2>
+            </div>
+            <div class="project-grid">
+              <a class="project-card" href="pages/midnight-notes.html">
+                <div>
+                  <p class="label">2025 · Mobile</p>
+                  <h3>Midnight Notes</h3>
+                  <p>
+                    A distraction-free journaling app with delightful motion and on-device
+                    privacy. Coming soon to the App Store.
+                  </p>
+                </div>
+                <span>Product design · SwiftUI</span>
+                <span class="project-hub-link">
+                  Explore the Midnight Notes hub
+                  <span class="project-hub-link-arrow" aria-hidden="true">↗</span>
+                </span>
+              </a>
+              <a class="project-card" href="pages/signal-desk.html">
+                <div>
+                  <p class="label">2024 · Web</p>
+                  <h3>Signal Desk</h3>
+                  <p>
+                    Analytics for indie founders — real-time alerts with a human tone so you
+                    focus on the right metrics.
+                  </p>
+                </div>
+                <span>Design systems · React</span>
+                <span class="project-hub-link">
+                  Explore the Signal Desk hub
+                  <span class="project-hub-link-arrow" aria-hidden="true">↗</span>
+                </span>
+              </a>
+              <a class="project-card" href="pages/studio-atmos.html">
+                <div>
+                  <p class="label">2023 · Experiment</p>
+                  <h3>Studio Atmos</h3>
+                  <p>
+                    Generative visuals projected in retail spaces to match music and mood.
+                  </p>
+                </div>
+                <span>Creative coding · WebGL</span>
+                <span class="project-hub-link">
+                  Explore the Studio Atmos hub
+                  <span class="project-hub-link-arrow" aria-hidden="true">↗</span>
+                </span>
+              </a>
+            </div>
           </div>
-          <div class="project-grid">
-            <article class="project-card">
+        </section>
+
+        <section class="dashboards" id="dashboards">
+          <div class="dashboard-shell">
+            <div class="dashboards-heading">
               <div>
-                <p class="label">2025 · Mobile</p>
-                <h3>Midnight Notes</h3>
-                <p>
-                  A distraction-free journaling app with delightful motion and on-device
-                  privacy. Coming soon to the App Store.
-                </p>
+                <p class="eyebrow">Live operating layer</p>
+                <h2>My Dashboards</h2>
               </div>
-              <span>Product design · SwiftUI</span>
-            </article>
-            <article class="project-card">
-              <div>
-                <p class="label">2024 · Web</p>
-                <h3>Signal Desk</h3>
+              <p class="lede">
+                Two daily-use cockpit views where I track service delivery, surface anomalies,
+                and decide which experiments to greenlight next.
+              </p>
+            </div>
+            <div class="dashboard-grid">
+              <article class="dashboard-card dashboard-card--pipeline">
+                <div class="dashboard-card__head">
+                  <p class="label">Ops health</p>
+                  <span class="dashboard-pill">Live refresh</span>
+                </div>
+                <h3>Case Flow Radar</h3>
                 <p>
-                  Analytics for indie founders — real-time alerts with a human tone so you
-                  focus on the right metrics.
+                  Monitors throughput, backlog risk, and staffing deltas in real time so teams
+                  can rebalance caseloads before service levels slip.
                 </p>
-              </div>
-              <span>Design systems · React</span>
-            </article>
-            <article class="project-card">
-              <div>
-                <p class="label">2023 · Experiment</p>
-                <h3>Studio Atmos</h3>
+                <ul class="dashboard-metrics">
+                  <li>Cycle-time variance vs SLA bands</li>
+                  <li>Auto-alerts piped into Teams + email</li>
+                </ul>
+              </article>
+              <article class="dashboard-card dashboard-card--experiments">
+                <div class="dashboard-card__head">
+                  <p class="label">AI augmentation</p>
+                  <span class="dashboard-pill">Weekly pulse</span>
+                </div>
+                <h3>Augmentation Pulse</h3>
                 <p>
-                  Generative visuals projected in retail spaces to match music and mood.
+                  Tracks AI-assisted workflows, tagging uplift per task, experiment velocity,
+                  and confidence intervals on expected ROI.
                 </p>
-              </div>
-              <span>Creative coding · WebGL</span>
-            </article>
+                <ul class="dashboard-metrics">
+                  <li>Adoption + quality gates per workflow</li>
+                  <li>Experiment backlog scored by impact/effort</li>
+                </ul>
+              </article>
+            </div>
           </div>
         </section>
 
@@ -155,11 +232,24 @@
               </div>
             </a>
           </div>
+          <div class="cv-actions">
+            <p class="eyebrow">Curriculum Vitae</p>
+            <div class="cv-actions__grid">
+              <a class="cv-button cv-button--el" href="public/downloads/cv_el.doc" download>
+                <span>CV (Greek)</span>
+                <small>Λήψη .doc</small>
+              </a>
+              <a class="cv-button cv-button--en" href="public/downloads/cv_en.doc" download>
+                <span>CV (English)</span>
+                <small>Download .doc</small>
+              </a>
+            </div>
+          </div>
         </section>
       </main>
 
       <footer class="site-footer">
-        <small>© <span id="year"></span> Konstantinos L Karakostas · Crafted with intent, open for collaborations.</small>
+        <small>© <span id="year"></span> Konstantinos L. Karakostas · Crafted with intent, open for collaborations.</small>
         <div class="footer-links">
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>

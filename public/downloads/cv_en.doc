@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curriculum Vitae · Konstantinos L. Karakostas</title>
+  </head>
+  <body>
+    <h1>Curriculum Vitae</h1>
+    <p><strong>Name:</strong> Konstantinos L. Karakostas</p>
+    <p><strong>Role:</strong> Data Analyst & AI Product Builder</p>
+    <p><strong>Summary:</strong> I build decision-grade dashboards, AI accelerators, and workflow systems that keep teams focused on measurable outcomes.</p>
+    <p><strong>Experience:</strong></p>
+    <ul>
+      <li>2019–Present · Project Manager & Data Analyst · Legal services operations</li>
+      <li>2016–2019 · Business Analyst · Growth experimentation</li>
+    </ul>
+    <p><strong>Contact:</strong> c.karakostas10@gmail.com · +30 693 123 4567</p>
+  </body>
+</html>

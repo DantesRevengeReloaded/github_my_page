@@ -136,6 +136,15 @@ body {
   transform: translateY(18px);
   animation: heroCardEnter 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.hero-card:hover,
+.hero-card:focus-visible {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
 }
 
 .hero-card--idea {
@@ -294,6 +303,133 @@ button:hover {
   gap: 24px;
 }
 
+.projects-shell {
+  border: 1px solid var(--card-border);
+  border-radius: 40px;
+  padding: clamp(28px, 5vw, 48px);
+  background:
+    radial-gradient(circle at top right, rgba(132, 255, 210, 0.16), transparent 60%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.02), rgba(3, 3, 6, 0.96));
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.dashboards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dashboard-shell {
+  border: 1px solid var(--card-border);
+  border-radius: 40px;
+  padding: clamp(28px, 5vw, 48px);
+  background:
+    radial-gradient(circle at top left, rgba(74, 215, 209, 0.12), transparent 55%),
+    linear-gradient(140deg, rgba(255, 255, 255, 0.04), rgba(3, 3, 8, 0.95));
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
+}
+
+.dashboards-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.dashboards-heading .lede {
+  margin: 0;
+  max-width: 640px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-card {
+  position: relative;
+  padding: 28px;
+  border-radius: 28px;
+  border: 1px solid var(--card-border);
+  background: rgba(4, 4, 10, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 240px;
+  overflow: hidden;
+  transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+
+.dashboard-card::before {
+  content: '';
+  position: absolute;
+  inset: -15% -10% auto auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 45%;
+  opacity: 0.4;
+  transform: scale(0.9);
+  transition: opacity 280ms ease, transform 280ms ease;
+  z-index: 0;
+}
+
+.dashboard-card--pipeline::before {
+  background: radial-gradient(circle, rgba(74, 215, 209, 0.35), transparent 65%);
+}
+
+.dashboard-card--experiments::before {
+  background: radial-gradient(circle, rgba(255, 138, 92, 0.35), transparent 65%);
+}
+
+.dashboard-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.dashboard-card:hover::before {
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+
+.dashboard-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.dashboard-pill {
+  border: 1px solid rgba(74, 215, 209, 0.4);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.dashboard-metrics {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .section-heading h2 {
   margin: 6px 0 0;
 }
@@ -347,6 +483,82 @@ button:hover {
   fill: var(--accent);
 }
 
+.cv-actions {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cv-actions__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.cv-button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--fg);
+  border: 1px solid transparent;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  position: relative;
+  overflow: hidden;
+  gap: 6px;
+}
+
+.cv-button span {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.cv-button small {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cv-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.cv-button--el {
+  background: linear-gradient(120deg, rgba(74, 215, 209, 0.25), rgba(3, 3, 7, 0.95));
+  border-color: rgba(74, 215, 209, 0.4);
+}
+
+.cv-button--el::after {
+  background: radial-gradient(circle at top right, rgba(132, 255, 210, 0.4), transparent 60%);
+}
+
+.cv-button--en {
+  background: linear-gradient(120deg, rgba(189, 147, 249, 0.25), rgba(5, 5, 10, 0.95));
+  border-color: rgba(189, 147, 249, 0.4);
+}
+
+.cv-button--en::after {
+  background: radial-gradient(circle at bottom left, rgba(189, 147, 249, 0.45), transparent 65%);
+}
+
+.cv-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.45);
+}
+
+.cv-button:hover::after {
+  opacity: 1;
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -365,6 +577,8 @@ button:hover {
   position: relative;
   overflow: hidden;
   transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+  text-decoration: none;
+  color: inherit;
 }
 
 .project-card h3 {
@@ -380,6 +594,30 @@ button:hover {
 .project-card span {
   font-size: 0.85rem;
   color: var(--muted);
+}
+
+.project-hub-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--fg);
+  text-decoration: none;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  transition: color 200ms ease, gap 200ms ease;
+}
+
+.project-hub-link-arrow {
+  font-size: 1.1rem;
+}
+
+.project-card:hover .project-hub-link {
+  color: var(--accent);
+  gap: 12px;
 }
 
 .project-card::before {
@@ -427,6 +665,95 @@ button:hover {
   letter-spacing: 0.22em;
   color: var(--muted);
   margin: 0 0 12px;
+}
+
+.hub-shell {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: clamp(32px, 6vw, 64px) clamp(18px, 4vw, 48px) 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.hub-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: center;
+}
+
+.hub-back {
+  text-decoration: none;
+  color: var(--accent);
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(74, 215, 209, 0.4);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+.hub-highlight {
+  border-radius: 32px;
+  padding: clamp(28px, 4vw, 44px);
+  border: 1px solid var(--card-border);
+  background: linear-gradient(135deg, rgba(74, 215, 209, 0.12), rgba(7, 7, 10, 0.95));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.hub-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.hub-meta__item {
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.hub-card {
+  border-radius: 26px;
+  border: 1px solid var(--card-border);
+  padding: 24px;
+  background: var(--bg-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hub-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.hub-cta {
+  align-self: flex-start;
+  margin-top: 12px;
+  text-decoration: none;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  padding: 12px 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  color: var(--accent);
+  transition: transform 200ms ease;
+}
+
+.hub-cta:hover {
+  transform: translateY(-3px);
 }
 
 .site-footer {
@@ -496,12 +823,49 @@ button:hover {
     grid-template-columns: 1fr;
   }
 
+  .projects-shell {
+    padding: 24px;
+    border-radius: 28px;
+  }
+
+  .hub-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hub-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-shell {
+    padding: 24px;
+    border-radius: 28px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card {
+    min-height: auto;
+  }
+
+  .dashboard-card__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
   }
 
   .contact-card {
     border-radius: 28px;
+  }
+
+  .cv-actions__grid {
+    grid-template-columns: 1fr;
   }
 }
 
