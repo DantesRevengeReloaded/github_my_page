@@ -38,6 +38,21 @@ body {
   background: radial-gradient(circle at top, rgba(35, 35, 45, 0.7), transparent 55%), var(--bg);
 }
 
+.has-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0s;
+}
+
+.has-reveal [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
 .shell {
   max-width: 1080px;
   margin: 0 auto;
@@ -373,6 +388,11 @@ button:hover {
   transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
 }
 
+.dashboard-card--link {
+  color: inherit;
+  text-decoration: none;
+}
+
 .dashboard-card::before {
   content: '';
   position: absolute;
@@ -399,13 +419,15 @@ button:hover {
   z-index: 1;
 }
 
-.dashboard-card:hover {
+.dashboard-card:hover,
+.dashboard-card:focus-visible {
   border-color: var(--accent);
   transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
-.dashboard-card:hover::before {
+.dashboard-card:hover::before,
+.dashboard-card:focus-visible::before {
   opacity: 0.7;
   transform: scale(1.05);
 }
@@ -437,6 +459,32 @@ button:hover {
   gap: 8px;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.dashboard-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-decoration: none;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  transition: gap 200ms ease, color 200ms ease;
+}
+
+.dashboard-link span {
+  font-size: 1rem;
+}
+
+.dashboard-link:hover,
+.dashboard-link:focus-visible {
+  gap: 12px;
+  color: #7fffea;
+  outline: none;
 }
 
 .section-heading h2 {
@@ -685,6 +733,37 @@ button:hover {
   gap: 28px;
 }
 
+.hub-repo-callout {
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 18px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(74, 215, 209, 0.06);
+}
+
+.hub-repo-callout a {
+  color: var(--accent);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hub-repo-callout span {
+  font-size: 1rem;
+}
+
+.hub-repo-callout__note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
 .hub-header {
   display: flex;
   justify-content: space-between;
@@ -709,6 +788,33 @@ button:hover {
   border: 1px solid var(--card-border);
   background: linear-gradient(135deg, rgba(74, 215, 209, 0.12), rgba(7, 7, 10, 0.95));
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hub-highlight__list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hub-highlight__cta {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.hub-highlight__cta-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .hub-meta {
@@ -745,6 +851,129 @@ button:hover {
   padding-left: 18px;
   color: var(--muted);
   line-height: 1.6;
+}
+
+/* Storyline cards for the PokoPred hub */
+.hub-story {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  counter-reset: story;
+  padding-left: clamp(28px, 5vw, 64px);
+}
+
+.hub-story::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(74, 215, 209, 0.8), rgba(74, 215, 209, 0));
+  opacity: 0.4;
+}
+
+.story-card {
+  border-radius: 32px;
+  border: 1px solid var(--card-border);
+  padding: clamp(24px, 5vw, 44px);
+  background:
+    radial-gradient(circle at top right, rgba(74, 215, 209, 0.18), transparent 65%),
+    rgba(5, 5, 10, 0.92);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.story-card--link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.story-card--link:hover,
+.story-card--link:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 32px 70px rgba(0, 0, 0, 0.55);
+  outline: none;
+}
+
+.story-card::before {
+  content: counter(story, decimal-leading-zero);
+  counter-increment: story;
+  position: absolute;
+  left: -46px;
+  top: 32px;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(74, 215, 209, 0.5);
+  display: grid;
+  place-items: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  background: rgba(3, 3, 6, 0.8);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.story-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(74, 215, 209, 0.14), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.story-card.is-visible::after {
+  opacity: 1;
+}
+
+.story-card.is-visible::before {
+  border-color: var(--accent);
+  transform: scale(1.08);
+  box-shadow: 0 0 18px rgba(74, 215, 209, 0.35);
+}
+
+.story-card__tag {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.68rem;
+  color: var(--accent);
+  margin: 0 0 12px;
+}
+
+.story-card__list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.story-card__list li {
+  margin-bottom: 8px;
+}
+
+.story-card__list li:last-child {
+  margin-bottom: 0;
+}
+
+.story-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.68rem;
+  color: var(--accent);
+  margin-top: 18px;
+}
+
+.story-card__cta span {
+  font-size: 1rem;
 }
 
 .hub-cta {
@@ -844,6 +1073,19 @@ button:hover {
 
   .hub-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hub-story {
+    padding-left: 32px;
+    gap: 20px;
+  }
+
+  .hub-story::before {
+    left: 8px;
+  }
+
+  .story-card::before {
+    left: -34px;
   }
 
   .dashboard-shell {

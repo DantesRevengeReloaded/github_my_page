@@ -96,18 +96,19 @@
               <h2>Projects that matter</h2>
             </div>
             <div class="project-grid">
-              <a class="project-card" href="pages/midnight-notes.html">
+              <a class="project-card" href="pages/pokopred.html">
                 <div>
-                  <p class="label">2025 · Mobile</p>
-                  <h3>Midnight Notes</h3>
+                  <p class="label">2025 · Data Platform</p>
+                  <h3>PokoPred</h3>
                   <p>
-                    A distraction-free journaling app with delightful motion and on-device
-                    privacy. Coming soon to the App Store.
+                    My flagship football prediction system that pairs a guided CLI with
+                    resilient Postgres pipelines, ensemble ML models, and explainable draw
+                    analytics so bettors get transparent, schedule-ready insights.
                   </p>
                 </div>
-                <span>Product design · SwiftUI</span>
+                <span>Data Engineering · ML · PostgreSQL · Data Analysis</span>
                 <span class="project-hub-link">
-                  Explore the Midnight Notes hub
+                  Open the PokoPred playbook
                   <span class="project-hub-link-arrow" aria-hidden="true">↗</span>
                 </span>
               </a>
@@ -152,26 +153,35 @@
                 <h2>My Dashboards</h2>
               </div>
               <p class="lede">
-                Two daily-use cockpit views where I track service delivery, surface anomalies,
-                and decide which experiments to greenlight next.
+                Two auto updated Dashboards which showcase the data that were analyzed and insights derived.
               </p>
             </div>
             <div class="dashboard-grid">
-              <article class="dashboard-card dashboard-card--pipeline">
+              <a
+                class="dashboard-card dashboard-card--pipeline dashboard-card--link"
+                href="https://apppokopred-dwcxqnx6ueh3u8eqptwah2.streamlit.app/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <div class="dashboard-card__head">
-                  <p class="label">Ops health</p>
-                  <span class="dashboard-pill">Live refresh</span>
+                  <p class="label">PokoPred live</p>
+                  <span class="dashboard-pill">Streamlit</span>
                 </div>
-                <h3>Case Flow Radar</h3>
+                <h3>PokoPred Streamlit Console</h3>
                 <p>
-                  Monitors throughput, backlog risk, and staffing deltas in real time so teams
-                  can rebalance caseloads before service levels slip.
+                  A visualization of PokoPred system that surfaces match predictions, draw probabilities,
+                  and pipeline health so I can demo the full betting workflow in one place.
                 </p>
                 <ul class="dashboard-metrics">
-                  <li>Cycle-time variance vs SLA bands</li>
-                  <li>Auto-alerts piped into Teams + email</li>
+                  <li>Season ingestion + training run telemetry with status badges.</li>
+                  <li>Upcoming fixture predictions with ROI + draw conversion signals.</li>
+                  <li>Interactive filters for leagues and seasons.</li>
                 </ul>
-              </article>
+                <span class="dashboard-link">
+                  Launch live dashboard
+                  <span aria-hidden="true">↗</span>
+                </span>
+              </a>
               <article class="dashboard-card dashboard-card--experiments">
                 <div class="dashboard-card__head">
                   <p class="label">AI augmentation</p>

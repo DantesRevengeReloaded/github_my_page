@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  document.documentElement.classList.add('has-reveal');
   const button = document.querySelector('#cta');
   const projectsSection = document.querySelector('#projects');
   const yearBadge = document.querySelector('#year');

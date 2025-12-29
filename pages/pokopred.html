@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PokoPred · Project Hub</title>
+    <link rel="icon" href="../src/assets/icons/ksymbol.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../src/styles/main.css" />
+  </head>
+  <body>
+    <div class="hub-shell">
+      <div class="hub-repo-callout">
+        <p class="label">Streamlit Repo</p>
+        <a href="https://github.com/DantesRevengeReloaded/streamlit_pokopred" target="_blank" rel="noreferrer">
+          github.com/DantesRevengeReloaded/streamlit_pokopred
+          <span aria-hidden="true">↗</span>
+        </a>
+        <p class="hub-repo-callout__note">
+          The Streamlit build bundles the public-facing PokoPred docs so stakeholders can read
+          architecture notes, CLI guides, and release highlights alongside the live dashboards.
+        </p>
+      </div>
+      <header class="hub-header">
+        <div>
+          <p class="eyebrow">Project hub</p>
+          <h1>PokoPred</h1>
+          <p class="lede">
+            Flagship football prediction system blending automated data engineering, resilient
+            infrastructure, and explainable machine learning to get structured data and predictions.
+          </p>
+        </div>
+        <a class="hub-back" href="../index.html#projects">← Back to projects</a>
+      </header>
+
+      <section class="hub-highlight">
+        <h2>Guided experience, CLI-first</h2>
+        <p>
+          PokoPred’s command line interface keeps every workflow approachable, while still
+          exposing switches for automation. Highlights from the playbook include:
+        </p>
+        <ul class="hub-highlight__list">
+          <li>A cli menu covers setup, season updates, training, and specialist analysis tools.</li>
+          <li>Command switches (<code>clipokopred --setup</code>, <code>--update</code>, <code>--train</code>, <code>--analysis</code>) let schedulers trigger the same flows headlessly.</li>
+          <li>Every step includes confirmations, extensive logging, and guardrails so non-engineers stay confident.</li>
+          <li>The end-to-end system stays private for now; the Streamlit dashboard is the public window into the data.</li>
+        </ul>
+          <p>
+            Need the full CLI walk-through or private dataset access?
+          </p>
+        <div class="hub-highlight__cta">
+          <a class="hub-cta" href="../index.html#contact">Request full case study</a>
+        </div>
+
+      </section>
+
+      <div class="hub-meta">
+        <div class="hub-meta__item">
+          <p class="label">Role</p>
+          <p>Data engineering · ML ops · Product strategy</p>
+        </div>
+        <div class="hub-meta__item">
+          <p class="label">Timeline</p>
+          <p>Jan 2024 — Present</p>
+        </div>
+        <div class="hub-meta__item">
+          <p class="label">Stack</p>
+          <p>Python · PostgreSQL · XGBoost · CLI</p>
+        </div>
+      </div>
+
+      <section class="hub-story" aria-label="PokoPred system story">
+        <article class="story-card" data-reveal="0.05">
+          <p class="story-card__tag">Why it exists</p>
+          <h3>Reliable betting intelligence without bespoke plumbing</h3>
+          <p>
+            PokoPred targets bettors and analysts who need consistent, explainable predictions but
+            don’t want to wire up ingestion, storage, or modeling stacks from scratch. The system
+            emphasizes reliability, transparency, and a guided user experience.
+          </p>
+          <ul class="story-card__list">
+            <li>Automated season ingestion keeps raw files synchronized and verifiable.</li>
+            <li>Explainable signals highlight feature contributions and draw confidence miles ahead of kick-off.</li>
+            <li>Guided UX shields less technical users from brittle scripts while staying automation-friendly.</li>
+          </ul>
+        </article>
+
+        <a
+          class="story-card story-card--link"
+          data-reveal="0.12"
+          href="https://apppokopred-dwcxqnx6ueh3u8eqptwah2.streamlit.app/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <p class="story-card__tag">Live console · Streamlit</p>
+          <h3>Dashboard walk-through for predictions + analysis</h3>
+          <p>
+            The Streamlit deployment mirrors the CLI flow with guided panels for season ingestion,
+            model runs, and betting insights. Visitors can explore the output of the week, ROI info, and draw
+            conversion probabilities without touching a terminal.
+          </p>
+          <ul class="story-card__list">
+            <li>Real-time widgets for data quality checks, training status, and refresh timers.</li>
+            <li>Interactive fixture explorer that surfaces ensemble picks and draw thresholds.</li>
+            <li>Built-in storytelling so I can demo PokoPred in the browser during portfolio reviews.</li>
+          </ul>
+          <span class="story-card__cta">
+            Open Streamlit experience
+            <span aria-hidden="true">↗</span>
+          </span>
+        </a>
+
+        <article class="story-card" data-reveal="0.2">
+          <p class="story-card__tag">CLI rails · cli_pokopred_documentation.md</p>
+          <h3>Interactive shell + scriptable switches</h3>
+          <p>
+            The CLI opens with a banner-driven menu that steps through setup, season updates, model
+            training, and specialist analysis tools. Every menu choice double checks intent, streams
+            progress states, and pauses at milestones so new operators stay oriented.
+          </p>
+          <ul class="story-card__list">
+            <li><code>clipokopred --setup|--update|--train|--analysis</code> mirrors each menu branch for schedulers.</li>
+            <li>Confirmation gates prevent destructive actions on production datasets.</li>
+            <li>Progress + pause screens make long model runs feel like a guided walkthrough.</li>
+          </ul>
+        </article>
+
+        <article class="story-card" data-reveal="0.28">
+          <p class="story-card__tag">Data spine · data_betproj_postgres_documentation.md</p>
+          <h3>Resilient PostgreSQL pipeline</h3>
+          <p>
+            Automated orchestration stretches from ingestion to inference so every prediction is
+            backed by auditable lineage.
+          </p>
+          <ul class="story-card__list">
+            <li>DataDL synchronizes historical + live seasons, feeding DbPostgresRawDataStore.</li>
+            <li>DbTeamStatsStore computes advanced form metrics; PostgresModelStore builds the feature matrix.</li>
+            <li>ModelRun schedules training + inference, while DrawDataProcessor tracks dedicated draw probabilities.</li>
+          </ul>
+        </article>
+
+        <article class="story-card" data-reveal="0.36">
+          <p class="story-card__tag">Harvest layer · data_dler_documentation.md</p>
+          <h3>Respectful scraping + fixture intelligence</h3>
+          <p>
+            DataManager manages polite sessions, league-aware file naming, and CSV validation. UpComingGames
+            builds the forward-looking fixture dataset so predictions stay actionable.
+          </p>
+          <ul class="story-card__list">
+            <li>Utility helpers track which leagues map to each season (England, Germany, Spain, Italy, France, more).</li>
+            <li>Harvest checkpoints surface schema drift before it hits downstream stores.</li>
+            <li>Operators can extend coverage by dropping new league definitions instead of rewriting code.</li>
+          </ul>
+        </article>
+
+        <article class="story-card" data-reveal="0.44">
+          <p class="story-card__tag">Model stack · data_models_documentation.md</p>
+          <h3>Consistent training interfaces and ensembles</h3>
+          <p>
+            All models inherit the PokoPred base class so loading, preprocessing, evaluation, and persistence
+            behave identically whether you deploy Random Forests or Neural Nets.
+          </p>
+          <ul class="story-card__list">
+            <li>Bundled models: Random Forest, Logistic Regression, Neural Network, XGBoost, plus calibrated + soft voting ensembles.</li>
+            <li>EnsembleDrawAnalyzer merges outputs into ROI-centric summaries, not just accuracy charts.</li>
+            <li>DrawDataProcessor and draw-specific models keep conservative bettors informed.</li>
+          </ul>
+        </article>
+
+        <article class="story-card" data-reveal="0.52">
+          <p class="story-card__tag">Draw conversion + observability</p>
+          <h3>Auditable prediction upgrades and logging</h3>
+          <p>
+            <em>draw_conversion_implementation.md</em> details how low-confidence home/away picks flip to draws when
+            dedicated thresholds are crossed. StoreEnhancedPredictions writes enriched results back to PostgreSQL with
+            conflict-safe upserts for full traceability.
+          </p>
+          <ul class="story-card__list">
+            <li><em>logging_config_documentation.md</em> centralizes JSON configs, module overrides, and rotating handlers.</li>
+            <li>Unified logging makes debugging harvesting jobs, long model runs, or CLI workflows tractable on remote servers.</li>
+            <li>Structured metadata lets monitoring dashboards plot accuracy + ROI drifts per release.</li>
+          </ul>
+        </article>
+
+        <article class="story-card" data-reveal="0.6">
+          <p class="story-card__tag">Tooling + roadmap</p>
+          <h3>Analysis suite and living documentation</h3>
+          <p>
+            The supporting tools catalog (<em>tools_documentation.md</em>) keeps analysts inside the guided shell while exploring ROI,
+            accuracy, draw strategies, and weather overlays.
+          </p>
+          <ul class="story-card__list">
+            <li><code>models_prediction_analysis.py</code>, <code>hyperparameters_optimizer.py</code>, and weather/map loaders plug directly into the CLI.</li>
+            <li><em>CHANGELOG.md</em>, <em>docs/changelog_patches</em>, and <em>version.json</em> document releases (2.0.0 merged runs, centralized logging, new analysis flows).</li>
+            <li><em>README</em> + <em>SYSTEM_DOCUMENTATION_INDEX.md</em> tie the narrative together for portfolios, investors, and onboarding.</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+    <script src="../src/scripts/main.js"></script>
+  </body>
+</html>

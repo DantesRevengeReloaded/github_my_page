@@ -26,7 +26,7 @@
 
 ## Extending Pages & Hubs
 - Home sections should be prototyped under `src/sections/` (HTML snippets + notes) before being pasted into `index.html`; keep README guidance in each folder up to date.
-- Project hubs (e.g., `pages/midnight-notes.html`) use the `.hub-shell` layout; add new hubs by copying one of these files and updating only the text blocks and CTA targets.
+- Project hubs (e.g., `pages/pokopred.html`) use the `.hub-shell` layout; add new hubs by copying one of these files and updating only the text blocks and CTA targets.
 - Shared typography helpers (`.eyebrow`, `.label`, `.lede`) already style semantics, so wrap new copy in existing classes rather than adding redundant CSS.
 - Any new CTA buttons should reuse `.cv-button` or `.hub-cta` styles; update `main.css` in place if a new variant is unavoidable, documenting why in a comment.
 
