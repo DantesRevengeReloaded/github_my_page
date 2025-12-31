@@ -627,10 +627,11 @@ button:hover {
   border-radius: 28px;
   background: var(--bg-soft);
   border: 1px solid var(--card-border);
+  min-height: 320px; /* Ensures all cards have the same height */
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 24px;
-  min-height: 220px;
   position: relative;
   overflow: hidden;
   transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
