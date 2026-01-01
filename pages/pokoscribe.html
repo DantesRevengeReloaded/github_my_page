@@ -44,16 +44,45 @@
       The system is designed to help writers to write faster and more efficiently 
       automating some of the tasks in the writing process and only if the data are gathered 
       with rationality and have been prepared in the correct format.</p>
-      <section class="hub-highlight">
-        <h2>Agents</h2>
-                <p>
-          PokoScribe has agents that work together to automate the academic writing process. The agents make API calls to various services of popular AI chatbots to process data that have been gathered. The agents are designed to work together and the goal of this project is to fully automate the process so the output of one agent can be used as the input of another agent. For this the configuration file and the correct prompt engineering are crucial for the system to work more efficiently.
-        </p>
-        <ul class="hub-highlight__list">
-          <li><strong>AI Agent Summarizer:</strong> Agent that summarizes academic papers, articles or even books with proper citation according to the user preferences. Prompts and answers are stored in db with the citation of the paper, and the project that the paper is related to. If the paper has big amount of text, the agent will split the text into smaller parts and summarize them separately. The agent will also count the tokens of the text and will create batches of the text to handle them more efficiently.</li>
-          <li><strong>AI Agent Outliner:</strong> AI agent that creates an outline for the paper, article, or essay based on the total summaries and citations of the specific project. Its purpose is to suggest the structure of the text after it reads the summaries and citations of the papers related to the project and it creates an outline. Because the summaries may be long, the agents splits the text into batches and outlines them separately. After that the agent combines the outlines and creates the final outline of the project.</li>
-          <li><strong>AI Agent Chapter Creator:</strong> AI agent that generates chapters of the paper based on the outline. The chapter that generated are passed to the agent and creates them based on the summaries it reads. Again, the agent here splits the text into batches and creates the chapters separately. After that the agent combines the chapters and creates the final chapters of the project so it will avoid reaching the token limit of the API. The token limit of reading texts are 25k per batch so it will be efficient and with good performance.</li>
-        </ul>
+      <section class="hub-agents" aria-label="PokoScribe agents">
+        <div class="hub-agents__intro">
+          <h2>Agents</h2>
+          <p>
+            PokoScribe leans on three specialists that trade work in sequence. Each agent writes to the same schema so the next one can pull context without brittle parsing.
+          </p>
+        </div>
+        <div class="hub-agents__grid">
+          <article class="hub-agent" data-reveal="0.05">
+            <p class="hub-agent__eyebrow">Start</p>
+            <h3>Summarizer</h3>
+            <p>Breaks long-form papers into batches, keeps citations attached, and stores token counts for downstream limits.</p>
+            <ul class="hub-agent__list">
+              <li>Splits large PDFs into safe chunks with consistent IDs.</li>
+              <li>Captures citation strings alongside every summary paragraph.</li>
+              <li>Persists prompts/answers in PostgreSQL for reuse.</li>
+            </ul>
+          </article>
+          <article class="hub-agent" data-reveal="0.12">
+            <p class="hub-agent__eyebrow">Structure</p>
+            <h3>Outliner</h3>
+            <p>Reads the summaries table and drafts scaffolds with references mapped back to the source material.</p>
+            <ul class="hub-agent__list">
+              <li>Pulls only the summaries for the active project ID.</li>
+              <li>Suggests headings plus inline citations per section.</li>
+              <li>Writes outline JSON that the next agent can stream.</li>
+            </ul>
+          </article>
+          <article class="hub-agent" data-reveal="0.2">
+            <p class="hub-agent__eyebrow">Draft</p>
+            <h3>Chapter Creator</h3>
+            <p>Expands the outline into prose, keeping chunk sizes API-safe and reusing the stored citations.</p>
+            <ul class="hub-agent__list">
+              <li>Consumes outline nodes and stitches their source refs.</li>
+              <li>Enforces token budgets per batch before generation.</li>
+              <li>Publishes chapters back to the database for review.</li>
+            </ul>
+          </article>
+        </div>
       </section>
       <div class="hub-meta">
         <div class="hub-meta__item">
@@ -69,25 +98,46 @@
           <p>2025</p>
         </div>
       </div>
-      <div class="hub-grid">
-        <article class="hub-card">
-          <h3>Tools</h3>
-          <p>The system has tools that are used to gather data and process them for the agents to work efficiently. These tools are used to gather academic papers, download them, count the tokens of the text, and handle the text more efficiently. TokenCounter tool is used in agents to help them to create batches of the text and handle them more efficiently.</p>
-          <ul>
-            <li><strong>AHSS:</strong> AHSS (Academic Hyper Search System) is a tool that is used to gather academic papers from the web. It uses platforms to gather metadata and store them in the database for later use.</li>
-            <li><strong>SciHub-dler:</strong> SciHub-dler is a tool that is used to download academic papers from SciHub using web scraping techniques. It uses the DOI of the paper to download it in pdf format.</li>
-            <li><strong>TokenCounter:</strong> TokenCounter is a tool that is used to count the tokens of the text. It is used to count the tokens of the summaries and the citations of the papers that are used in the system. It is called by the agents to count the tokens of the text in order to create batches and handle the text more efficiently.</li>
+      <section class="hub-story hub-story--scribe" aria-label="PokoScribe operating pillars">
+        <article class="story-card" data-reveal="0.05">
+          <p class="story-card__tag">Acquisition layer</p>
+          <h3>Research capture stays citation-ready</h3>
+          <p>
+            The collection toolkit keeps every PDF and metadata fragment aligned with the project ID so agents can stitch sources without manual cleanup.
+          </p>
+          <ul class="story-card__list">
+            <li>AHSS sweeps discovery engines and persists structured references for later citation injection.</li>
+            <li>SciHub-dler mirrors the DOI map, naming files the same way the database expects.</li>
+            <li>TokenCounter tags every chunk with token counts so prompts stay inside the guardrails.</li>
           </ul>
         </article>
-        <article class="hub-card">
-          <h3>Best Practices</h3>
-          <ul>
-            <li>Prepare data and prompts with care for best results.</li>
-            <li>Use agents together for full automation, or individually for specific tasks.</li>
-            <li>Always review and edit generated content before using in academic work.</li>
+
+        <article class="story-card" data-reveal="0.12">
+          <p class="story-card__tag">Agent relay</p>
+          <h3>Specialists hand off work like a studio</h3>
+          <p>
+            Summaries, outlines, and chapters are treated as linked deliverables: each agent writes to the same schema so the next one can ingest without brittle parsing.
+          </p>
+          <ul class="story-card__list">
+            <li>Summarizer batches long-form sources, saving citations + token metadata alongside the copy.</li>
+            <li>Outliner queries the summaries table, generating section scaffolds with references to upstream sources.</li>
+            <li>Chapter Creator reuses those references and enforces API-friendly chunk sizes before publishing prose.</li>
           </ul>
         </article>
-      </div>
+
+        <article class="story-card" data-reveal="0.2">
+          <p class="story-card__tag">Quality loop</p>
+          <h3>Human review stays in the circuit</h3>
+          <p>
+            Automation speeds drafting, but the workflow still routes every deliverable through an editorial pass so ethics and rigor remain intact.
+          </p>
+          <ul class="story-card__list">
+            <li>Prepare prompts with explicit tone + citation demands before triggering a full run.</li>
+            <li>Spot-check generated copy against the stored references to confirm fidelity.</li>
+            <li>Merge agents or run them solo depending on whether you need a quick excerpt or an end-to-end draft.</li>
+          </ul>
+        </article>
+      </section>
     </div>
   </body>
 </html>
