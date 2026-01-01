@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PokoScribe · Project Hub</title>
+    <link rel="icon" href="../src/assets/icons/ksymbol.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../src/styles/main.css" />
+  </head>
+  <body>
+    <div class="hub-shell">
+      <header class="hub-header">
+        <div>
+          <p class="eyebrow">Project hub</p>
+          <h1>PokoScribe</h1>
+          <p class="lede">
+            PokoScribe is a Multi-Agent System (MAS) that combines summarization, citation, paper outlining, and chapter creation for automation of academic writing.<br><br>
+        </div>
+        <a class="hub-back" href="../index.html#projects">← Back to projects</a>
+      </header>
+      <a
+        class="hub-repo-callout"
+        href="https://github.com/DantesRevengeReloaded/PokoScribe_AI_Agent"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <div class="hub-repo-callout__media">
+          <img src="../public/images/pokoscribe_logo.png" alt="PokoScribe crest" loading="lazy" />
+        </div>
+        <div class="hub-repo-callout__content">
+          <p class="label">PokoScribe Repo</p>
+          <span class="hub-repo-callout__cta">
+            Explore the PokoScribe repository
+            <span aria-hidden="true">↗</span>
+          </span>
+          <p class="hub-repo-callout__note">
+            The system has agents that work together to speed up academic writing tasks or can be used individually for specific tasks if the data are provided in the correct format.<br><br>
+            Prompts and answers of the system are stored using PostgreSQL database.<br><br>
+          </p>
+        </div>
+      </a>
+      <p>Disclaimer: PokoScribe is not a replacement for human writers and under no cirumstances should 
+      the output of the system be used as the final version of the paper. 
+      The system is designed to help writers to write faster and more efficiently 
+      automating some of the tasks in the writing process and only if the data are gathered 
+      with rationality and have been prepared in the correct format.</p>
+      <section class="hub-highlight">
+        <h2>Agents</h2>
+                <p>
+          PokoScribe has agents that work together to automate the academic writing process. The agents make API calls to various services of popular AI chatbots to process data that have been gathered. The agents are designed to work together and the goal of this project is to fully automate the process so the output of one agent can be used as the input of another agent. For this the configuration file and the correct prompt engineering are crucial for the system to work more efficiently.
+        </p>
+        <ul class="hub-highlight__list">
+          <li><strong>AI Agent Summarizer:</strong> Agent that summarizes academic papers, articles or even books with proper citation according to the user preferences. Prompts and answers are stored in db with the citation of the paper, and the project that the paper is related to. If the paper has big amount of text, the agent will split the text into smaller parts and summarize them separately. The agent will also count the tokens of the text and will create batches of the text to handle them more efficiently.</li>
+          <li><strong>AI Agent Outliner:</strong> AI agent that creates an outline for the paper, article, or essay based on the total summaries and citations of the specific project. Its purpose is to suggest the structure of the text after it reads the summaries and citations of the papers related to the project and it creates an outline. Because the summaries may be long, the agents splits the text into batches and outlines them separately. After that the agent combines the outlines and creates the final outline of the project.</li>
+          <li><strong>AI Agent Chapter Creator:</strong> AI agent that generates chapters of the paper based on the outline. The chapter that generated are passed to the agent and creates them based on the summaries it reads. Again, the agent here splits the text into batches and creates the chapters separately. After that the agent combines the chapters and creates the final chapters of the project so it will avoid reaching the token limit of the API. The token limit of reading texts are 25k per batch so it will be efficient and with good performance.</li>
+        </ul>
+      </section>
+      <div class="hub-meta">
+        <div class="hub-meta__item">
+          <p class="label">Stack</p>
+          <p>Python · AI APIs · PostgreSQL</p>
+        </div>
+        <div class="hub-meta__item">
+          <p class="label">Tools</p>
+          <p>AHSS, SciHub-dler, TokenCounter</p>
+        </div>
+        <div class="hub-meta__item">
+          <p class="label">Timeline</p>
+          <p>2025</p>
+        </div>
+      </div>
+      <div class="hub-grid">
+        <article class="hub-card">
+          <h3>Tools</h3>
+          <p>The system has tools that are used to gather data and process them for the agents to work efficiently. These tools are used to gather academic papers, download them, count the tokens of the text, and handle the text more efficiently. TokenCounter tool is used in agents to help them to create batches of the text and handle them more efficiently.</p>
+          <ul>
+            <li><strong>AHSS:</strong> AHSS (Academic Hyper Search System) is a tool that is used to gather academic papers from the web. It uses platforms to gather metadata and store them in the database for later use.</li>
+            <li><strong>SciHub-dler:</strong> SciHub-dler is a tool that is used to download academic papers from SciHub using web scraping techniques. It uses the DOI of the paper to download it in pdf format.</li>
+            <li><strong>TokenCounter:</strong> TokenCounter is a tool that is used to count the tokens of the text. It is used to count the tokens of the summaries and the citations of the papers that are used in the system. It is called by the agents to count the tokens of the text in order to create batches and handle the text more efficiently.</li>
+          </ul>
+        </article>
+        <article class="hub-card">
+          <h3>Best Practices</h3>
+          <ul>
+            <li>Prepare data and prompts with care for best results.</li>
+            <li>Use agents together for full automation, or individually for specific tasks.</li>
+            <li>Always review and edit generated content before using in academic work.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>
