@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PokoDler 1990 · Project Hub</title>
+    <link rel="icon" href="../src/assets/icons/ksymbol.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../src/styles/main.css" />
+  </head>
+  <body>
+    <div class="hub-shell">
+      <header class="hub-header">
+        <div>
+          <p class="eyebrow">personal project — local media utility</p>
+          <h1>PokoDler 1990</h1>
+          <p class="lede">
+            A desktop-class media pipeline. No npm. No build step. No framework runtime. Just a
+            well-designed tool that actually works.
+          </p>
+        </div>
+        <a class="hub-back" href="../index.html#projects">← Back to projects</a>
+      </header>
+
+      <section class="hub-highlight hub-highlight--dler">
+        <h2>What It Does</h2>
+        <div class="hub-pill-row" aria-label="PokoDler technology stack">
+          <span>FastAPI</span>
+          <span>yt-dlp</span>
+          <span>PostgreSQL</span>
+          <span>Spotify API</span>
+          <span>Python 3.11+</span>
+          <span>Vanilla JS</span>
+          <span>FFmpeg</span>
+          <span>psycopg2</span>
+        </div>
+        <div class="hub-agents__grid hub-agents__grid--dler">
+          <article class="hub-agent">
+            <p class="hub-agent__eyebrow">⬇ Single Download</p>
+            <p>
+              Paste any YouTube URL, pull it as audio or video. Output lands in an organized local
+              folder, ID3-tagged and ready.
+            </p>
+          </article>
+          <article class="hub-agent">
+            <p class="hub-agent__eyebrow">⊞ Playlist Batch</p>
+            <p>
+              Download full YouTube playlists into timestamped, sanitized folders. Concurrent jobs
+              run under a semaphore limit — no resource hammering.
+            </p>
+          </article>
+          <article class="hub-agent">
+            <p class="hub-agent__eyebrow">↔ Spotify Mirror</p>
+            <p>
+              Point it at any Spotify playlist, album, or artist. It fetches metadata, finds each
+              track on YouTube, downloads, converts to MP3, and writes history to the database.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="hub-story hub-story--dler" aria-label="The Spotify Mirror Pipeline">
+        <article class="story-card" data-reveal="0.05">
+          <p class="story-card__tag">01 — Parse</p>
+          <p>
+            Accept a Spotify URL or URI and identify whether it's a playlist, album, or artist
+            collection.
+          </p>
+        </article>
+        <article class="story-card" data-reveal="0.1">
+          <p class="story-card__tag">02 — Fetch</p>
+          <p>
+            Pull full track metadata from Spotify — titles, artists, duration — using either OAuth
+            or the <code>sp_dc</code> cookie fallback.
+          </p>
+        </article>
+        <article class="story-card" data-reveal="0.15">
+          <p class="story-card__tag">03 — Search</p>
+          <p>
+            Query YouTube per track to find the best audio match. Falls back to YouTube Music
+            lookup for editorial playlists.
+          </p>
+        </article>
+        <article class="story-card" data-reveal="0.2">
+          <p class="story-card__tag">04 — Download</p>
+          <p>
+            <code>yt-dlp</code> pulls the audio stream. FFmpeg converts to MP3. Semaphore limits
+            concurrent jobs.
+          </p>
+        </article>
+        <article class="story-card" data-reveal="0.25">
+          <p class="story-card__tag">05 — Tag &amp; Persist</p>
+          <p>
+            <code>mutagen</code> writes ID3 tags to each file. The job, history, and file path are
+            recorded to PostgreSQL.
+          </p>
+        </article>
+      </section>
+
+      <section class="hub-grid" aria-label="PokoDler architecture">
+        <article class="hub-card">
+          <h3>Frontend</h3>
+          <p>
+            Static HTML / CSS / JS — no build step, no npm, no runtime framework. Served directly
+            by FastAPI.
+          </p>
+        </article>
+        <article class="hub-card">
+          <h3>API Layer</h3>
+          <p>
+            FastAPI routes split across downloads, Spotify, files, and stats. Clean separation of
+            concerns at the HTTP boundary.
+          </p>
+        </article>
+        <article class="hub-card">
+          <h3>Service Layer</h3>
+          <p>
+            Download orchestration, Spotify logic, and DB access live here as independent service
+            modules.
+          </p>
+        </article>
+        <article class="hub-card">
+          <h3>Persistence</h3>
+          <p>
+            PostgreSQL via psycopg2. Three tables: downloaded_songs, spotify_downloads, jobs.
+            Schema auto-created on startup.
+          </p>
+        </article>
+      </section>
+
+      <section class="hub-grid" aria-label="PokoDler design decisions">
+        <article class="hub-card">
+          <h3>Why no npm?</h3>
+          <p>
+            The frontend is intentionally zero-toolchain. Static HTML, CSS, and JS served directly
+            by FastAPI. No bundler, no transpiler, no node_modules. It's a deliberate constraint
+            that keeps the project deployable and understandable without a separate frontend
+            environment.
+          </p>
+        </article>
+        <article class="hub-card">
+          <h3>Why two Spotify auth strategies?</h3>
+          <p>
+            The Spotify API restricts access to editorial playlists behind OAuth. The sp_dc cookie
+            flow was added as a pragmatic fallback for cases where OAuth isn't the right fit.
+            Supporting both means the tool works in more real-world situations.
+          </p>
+        </article>
+        <article class="hub-card">
+          <h3>Why semaphore-based concurrency?</h3>
+          <p>
+            Unbounded parallel downloads will saturate disk I/O and network quickly. A configurable
+            semaphore cap keeps the system stable under large playlist jobs without needing a full
+            job queue.
+          </p>
+        </article>
+        <article class="hub-card">
+          <h3>Why PostgreSQL for a local tool?</h3>
+          <p>
+            Download history, job state, and mirror records need to survive restarts and be
+            queryable. A flat file would have worked for simple history, but PostgreSQL gives
+            proper job tracking, progress upserts, and storage stats with almost no overhead for a
+            local setup.
+          </p>
+        </article>
+      </section>
+
+      <section class="hub-meta" aria-label="PokoDler project score">
+        <article class="hub-meta__item">
+          <p class="label">Portfolio Value</p>
+          <p>8 / 10</p>
+          <p>
+            Strong backend pipeline, intentional architectural opinions, and a concrete real-world
+            use case. Limited only by the absence of a live demo URL.
+          </p>
+        </article>
+        <article class="hub-meta__item">
+          <p class="label">Robustness</p>
+          <p>7 / 10</p>
+          <p>
+            Clean layered architecture, real concurrency handling, dual auth strategies, and proper
+            persistence. Gaps: no CI, no automated tests, monolithic service structure flagged for
+            future refactor.
+          </p>
+        </article>
+      </section>
+
+      <section class="hub-highlight hub-highlight--cta" aria-label="PokoDler call to action">
+        <h2>Want to see the code?</h2>
+        <p>All source on GitHub. MIT licensed. Runs locally in under five minutes.</p>
+        <div class="hub-highlight__cta hub-highlight__cta--row">
+          <a class="hub-cta" href="https://github.com/DantesRevengeReloaded" target="_blank" rel="noreferrer">View on GitHub</a>
+          <a class="hub-cta" href="../index.html#projects">Back to Portfolio</a>
+        </div>
+      </section>
+    </div>
+    <script src="../src/scripts/main.js"></script>
+  </body>
+</html>
