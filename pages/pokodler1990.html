@@ -58,42 +58,64 @@
         </div>
       </section>
 
-      <section class="hub-story hub-story--dler" aria-label="The Spotify Mirror Pipeline">
-        <article class="story-card" data-reveal="0.05">
-          <p class="story-card__tag">01 — Parse</p>
+      <section class="hub-process hub-process--dler" aria-label="The Spotify Mirror Pipeline">
+        <article class="hub-process__intro" data-reveal="0.05">
+          <p class="label">Core pipeline</p>
+          <h2>From playlist link to tagged local library</h2>
           <p>
-            Accept a Spotify URL or URI and identify whether it's a playlist, album, or artist
-            collection.
+            The middle of this product is not a generic downloader. It is a controlled media
+            pipeline that resolves a source, enriches it with metadata, downloads the right asset,
+            and records the job state so the whole flow stays repeatable.
           </p>
+          <ul class="hub-process__summary">
+            <li>Spotify links become structured track batches before any download starts.</li>
+            <li>YouTube matching and audio conversion happen under bounded concurrency.</li>
+            <li>Every finished file is tagged, stored, and written back to PostgreSQL.</li>
+          </ul>
         </article>
-        <article class="story-card" data-reveal="0.1">
-          <p class="story-card__tag">02 — Fetch</p>
-          <p>
-            Pull full track metadata from Spotify — titles, artists, duration — using either OAuth
-            or the <code>sp_dc</code> cookie fallback.
-          </p>
-        </article>
-        <article class="story-card" data-reveal="0.15">
-          <p class="story-card__tag">03 — Search</p>
-          <p>
-            Query YouTube per track to find the best audio match. Falls back to YouTube Music
-            lookup for editorial playlists.
-          </p>
-        </article>
-        <article class="story-card" data-reveal="0.2">
-          <p class="story-card__tag">04 — Download</p>
-          <p>
-            <code>yt-dlp</code> pulls the audio stream. FFmpeg converts to MP3. Semaphore limits
-            concurrent jobs.
-          </p>
-        </article>
-        <article class="story-card" data-reveal="0.25">
-          <p class="story-card__tag">05 — Tag &amp; Persist</p>
-          <p>
-            <code>mutagen</code> writes ID3 tags to each file. The job, history, and file path are
-            recorded to PostgreSQL.
-          </p>
-        </article>
+
+        <div class="hub-process__grid">
+          <article class="hub-process-card" data-reveal="0.1">
+            <p class="hub-process-card__step">01</p>
+            <h3>Parse source</h3>
+            <p>
+              Accept a Spotify URL or URI and classify it as a playlist, album, or artist
+              collection before any job fan-out begins.
+            </p>
+          </article>
+          <article class="hub-process-card" data-reveal="0.14">
+            <p class="hub-process-card__step">02</p>
+            <h3>Fetch metadata</h3>
+            <p>
+              Pull titles, artists, and duration from Spotify using OAuth first, with
+              <code>sp_dc</code> available when editorial access needs a pragmatic fallback.
+            </p>
+          </article>
+          <article class="hub-process-card" data-reveal="0.18">
+            <p class="hub-process-card__step">03</p>
+            <h3>Match on YouTube</h3>
+            <p>
+              Search YouTube track by track to find the strongest audio candidate, with YouTube
+              Music lookup used when playlist context needs a second pass.
+            </p>
+          </article>
+          <article class="hub-process-card" data-reveal="0.22">
+            <p class="hub-process-card__step">04</p>
+            <h3>Download and convert</h3>
+            <p>
+              <code>yt-dlp</code> pulls the stream, FFmpeg converts it to MP3, and semaphore caps
+              keep large playlist jobs from flooding the machine.
+            </p>
+          </article>
+          <article class="hub-process-card" data-reveal="0.26">
+            <p class="hub-process-card__step">05</p>
+            <h3>Tag and persist</h3>
+            <p>
+              <code>mutagen</code> writes ID3 tags, then the file path, history, and job state are
+              committed to PostgreSQL so the local library remains queryable.
+            </p>
+          </article>
+        </div>
       </section>
 
       <section class="hub-grid" aria-label="PokoDler architecture">
