@@ -24,13 +24,14 @@
     <link rel="stylesheet" href="src/styles/main.css" />
   </head>
   <body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="shell">
       <header class="site-header">
         <div class="logo">
           Konstantinos L. Karakostas
           <span class="logo-location">Athens, Greece</span>
         </div>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
           <span class="sr-only">Toggle navigation</span>
           <span class="nav-toggle__line"></span>
           <span class="nav-toggle__line"></span>
@@ -44,57 +45,70 @@
         </nav>
       </header>
 
-      <main class="content">
+      <main class="content" id="main-content">
         <section class="hero" id="about">
           <a class="hero-card hero-card--idea" href="https://github.com/DantesRevengeReloaded" target="_blank" rel="noreferrer">
             <div>
-              <p class="eyebrow">Data Analyst, Data Engineering & AI Product Builder</p>
-              <h1>Getting Results with Data</h1>
+              <p class="eyebrow">Data Analyst · Data Engineering · AI Product Builder</p>
+              <h1>Operational data products, not portfolio theater.</h1>
               <p class="lede">
-                A portfolio of experiments, prototypes 
-                and tools where I explore how data and AI can solve real world problems. 
-                I care about clarity over complexity, and products over demos.
-                "Find Solutions, Not Problems" 
+                I design systems that turn messy inputs into usable decisions:
+                data pipelines, monitoring dashboards, and AI-assisted workflows
+                that help real work move faster and with less guesswork.
               </p>
-              
+              <div class="hero-proof" aria-label="Portfolio highlights">
+                <span>3 active product tracks</span>
+                <span>1 live public dashboard</span>
+                <span>Operations + analytics since 2019</span>
+              </div>
+              <span class="hero-card__cta">
+                View GitHub work
+                <span aria-hidden="true">↗</span>
+              </span>
             </div>
           </a>
           <a class="hero-card hero-card--experience" href="https://www.linkedin.com/in/constantinoskarakostas/" target="_blank" rel="noreferrer" aria-label="Experience summary">
             <div class="xp-head">
-              <p class="label">Assets</p>
-              <span class="panel-pill">Experienced, yet ready to learn more</span>
+              <p class="label">What I bring</p>
+              <span class="panel-pill">Builder mindset, operator discipline</span>
             </div>
             <ul class="xp-list">
               <li>
-                <strong>Operational & Data Leadership - Legal Services Domain</strong>
-                <span>Project Manager & Data Analyst, 2019-Present</span>
+                <strong>Operational and data leadership</strong>
+                <span>Project Manager and Data Analyst in legal services, 2019-present.</span>
               </li>
               <li>
-                <strong>Strategic Curiosity</strong>
-                <span>Broad Knowledge in various fields: Political Science · Economics · History · Legal Services</span>
+                <strong>Cross-domain range</strong>
+                <span>Political science, economics, history, legal services, and product thinking.</span>
               </li>
               <li>
-                <strong>Builder’s Lab</strong>
-                <span>Projects, Experiments & Courses</span>
+                <strong>Execution across the stack</strong>
+                <span>Python, PostgreSQL, ML workflows, dashboards, and applied AI experimentation.</span>
               </li>
               <li>
-                <strong>Operational Principle</strong>
-                <span>AI is leverage, not the product. I use it to ship faster, think deeper 
-                  and get real work done.</span>
+                <strong>Operating principle</strong>
+                <span>AI is leverage, not the product. I use it to ship faster, think deeper, and reduce friction.</span>
               </li>
-
             </ul>
             <div class="xp-foot">
-              <p>Currently open for calm, purposeful products.</p>
+              <p>Open to analytics systems, internal tools, and AI workflow products that need structure, not hype.</p>
             </div>
+            <span class="hero-card__cta">
+              Open LinkedIn profile
+              <span aria-hidden="true">↗</span>
+            </span>
           </a>
         </section>
 
-        <section class="projects" id="projects">
+        <section class="projects" id="projects" data-reveal="0.05">
           <div class="projects-shell">
             <div class="section-heading">
               <p class="eyebrow">Selected work</p>
-              <h2>Projects that matter</h2>
+              <h2>Projects with a clear operating model</h2>
+              <p class="lede">
+                Each project below solves a different problem, but the pattern is the same:
+                make the workflow reliable, explainable, and usable by humans.
+              </p>
             </div>
             <div class="project-grid">
               <a class="project-card" href="pages/pokopred.html">
@@ -182,12 +196,12 @@
           </div>
         </section>
 
-        <section class="dashboards" id="dashboards">
+        <section class="dashboards" id="dashboards" data-reveal="0.1">
           <div class="dashboard-shell">
             <div class="dashboards-heading">
               <div>
                 <p class="eyebrow">Live operating layer</p>
-                <h2>My Dashboards</h2>
+                <h2>Dashboards and working consoles</h2>
               </div>
               <p class="lede">
                 Live dashboards and consoles that I build to monitor data pipelines,
@@ -238,13 +252,13 @@
           </div>
         </section>
 
-        <section class="contact" id="contact">
+        <section class="contact" id="contact" data-reveal="0.15">
           <div class="section-heading">
             <p class="eyebrow">Contact</p>
-            <h2>Say hello</h2>
+            <h2>Work with me</h2>
             <p class="lede">
-              Whether it’s a product experiment, workflow system, or AI-powered prototype,
-              I'm one message away.
+              If you need a dashboard, a data workflow, or an AI-assisted internal tool
+              that should actually survive contact with production, reach out.
             </p>
           </div>
           <div class="contact-grid">
@@ -284,6 +298,9 @@
           </div>
           <div class="cv-actions">
             <p class="eyebrow">Curriculum Vitae</p>
+            <p class="cv-note">
+              Current downloads are provided as Word documents. A PDF version should be added next for easier review.
+            </p>
             <div class="cv-actions__grid">
               <a class="cv-button cv-button--el" href="public/downloads/cv_el.doc" download>
                 <span>CV (Greek)</span>
@@ -299,7 +316,7 @@
       </main>
 
       <footer class="site-footer">
-        <small>© <span id="year"></span> Konstantinos L. Karakostas · Crafted with intent, open for collaborations.</small>
+        <small>© <span id="year"></span> Konstantinos L. Karakostas · Data systems, dashboards, and AI workflow design.</small>
         <div class="footer-links">
           <a href="#top">Home</a>
           <a href="#projects">Projects</a>

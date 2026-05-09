@@ -1,16 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.documentElement.classList.add('has-reveal');
-  const button = document.querySelector('#cta');
-  const projectsSection = document.querySelector('#projects');
   const yearBadge = document.querySelector('#year');
   const navToggle = document.querySelector('.nav-toggle');
   const siteNav = document.querySelector('.site-nav');
-
-  if (button && projectsSection) {
-    button.addEventListener('click', () => {
-      projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  }
 
   if (yearBadge) {
     yearBadge.textContent = new Date().getFullYear();
@@ -61,6 +53,4 @@ document.addEventListener('DOMContentLoaded', () => {
       revealTargets.forEach((el) => observer.observe(el));
     }
   }
-
-  console.log('Minimal portfolio ready.');
 });
