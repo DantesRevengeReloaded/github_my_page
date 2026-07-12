@@ -3,217 +3,356 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="PokoDler 1990 is a Python-first desktop media pipeline for YouTube downloads, Spotify mirroring, ID3 tagging, and PostgreSQL-backed job tracking — no npm, no frontend build step." />
+    <link rel="canonical" href="https://dantesrevengereloaded.github.io/pages/pokodler1990.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="PokoDler 1990 · Project Hub" />
+    <meta property="og:description" content="A desktop-class media pipeline: YouTube downloads, Spotify mirroring, ID3 tagging, and PostgreSQL job tracking — built Python-first with no npm." />
+    <meta property="og:url" content="https://dantesrevengereloaded.github.io/pages/pokodler1990.html" />
+    <meta property="og:image" content="https://dantesrevengereloaded.github.io/public/images/pokodler1990_logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PokoDler 1990 · Project Hub" />
+    <meta name="twitter:description" content="A Python-first media pipeline for YouTube and Spotify — no build step, full PostgreSQL job history." />
+    <meta name="twitter:image" content="https://dantesrevengereloaded.github.io/public/images/pokodler1990_logo.png" />
     <title>PokoDler 1990 · Project Hub</title>
     <link rel="icon" href="../src/assets/icons/ksymbol.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../src/styles/main.css" />
   </head>
   <body>
     <div class="hub-shell">
+
+      <!-- ── HEADER ── -->
       <header class="hub-header">
         <div>
-          <p class="eyebrow">personal project — local media utility</p>
+          <p class="eyebrow">Personal project · Local Media Utility · 2026</p>
           <h1>PokoDler 1990</h1>
           <p class="lede">
-            A desktop-class media pipeline. No npm. No build step. No framework runtime. Just a
-            well-designed tool that actually works.
+            A desktop-class media pipeline built with Python-first pragmatism.
+            YouTube downloads, Spotify mirroring, ID3 tagging, and PostgreSQL-backed
+            job tracking — no npm, no build step, no framework runtime.
           </p>
         </div>
         <a class="hub-back" href="../index.html#projects">← Back to projects</a>
       </header>
 
-      <section class="hub-highlight hub-highlight--dler">
-        <h2>What It Does</h2>
-        <div class="hub-pill-row" aria-label="PokoDler technology stack">
-          <span>FastAPI</span>
-          <span>yt-dlp</span>
-          <span>PostgreSQL</span>
-          <span>Spotify API</span>
-          <span>Python 3.11+</span>
-          <span>Vanilla JS</span>
-          <span>FFmpeg</span>
-          <span>psycopg2</span>
+      <!-- ── REPO CALLOUT ── -->
+      <a
+        class="hub-repo-callout hub-repo-callout--dler"
+        href="https://github.com/DantesRevengeReloaded"
+        target="_blank"
+        rel="noreferrer"
+        data-reveal="0.04"
+      >
+        <div class="hub-repo-callout__media hub-repo-callout__media--dler">
+          <img src="../public/images/pokodler1990_logo.png" alt="PokoDler 1990 logo" loading="lazy" />
+        </div>
+        <div class="hub-repo-callout__content">
+          <p class="label">PokoDler 1990 · GitHub</p>
+          <span class="hub-repo-callout__cta hub-repo-callout__cta--dler">
+            Explore the repository
+            <span aria-hidden="true">↗</span>
+          </span>
+          <p class="hub-repo-callout__note">
+            Source code, CLI entry point, FastAPI routes, Spotify integration, and PostgreSQL schema.
+            Runs locally in under five minutes on any machine with Python 3.11+ and FFmpeg.
+          </p>
+        </div>
+      </a>
+
+      <!-- ── WHAT IT DOES — highlight panel ── -->
+      <section class="hub-highlight hub-highlight--dler" data-reveal="0.06">
+        <div class="hub-highlight__header">
+          <h2>The problem it solves</h2>
+          <div class="hub-pill-row" aria-label="PokoDler technology stack">
+            <span>FastAPI</span>
+            <span>yt-dlp</span>
+            <span>PostgreSQL</span>
+            <span>Spotify API</span>
+            <span>Python 3.11+</span>
+            <span>Vanilla JS</span>
+            <span>FFmpeg</span>
+            <span>mutagen</span>
+          </div>
+        </div>
+        <p>
+          Downloading music from the internet is a solved problem — until you need it to be
+          <em>repeatable</em>, <em>organised</em>, and <em>auditable</em>. Most tools give you a file.
+          PokoDler 1990 gives you a pipeline: structured folders, ID3 metadata, job history,
+          and a Spotify-to-local-library mirror that remembers what it has already done.
+        </p>
+        <ul class="hub-highlight__list">
+          <li>Any YouTube URL or playlist becomes a tagged local audio or video file in one command.</li>
+          <li>Any Spotify playlist, album, or artist is resolved, matched on YouTube, downloaded, and written to PostgreSQL.</li>
+          <li>Download history survives restarts and is queryable — no re-downloading what you already own.</li>
+          <li>Concurrency is bounded by a semaphore so large batch jobs never saturate the machine.</li>
+        </ul>
+      </section>
+
+      <!-- ── THREE CORE CAPABILITIES ── -->
+      <section class="hub-agents hub-agents--dler" aria-label="PokoDler core capabilities" data-reveal="0.08">
+        <div class="hub-agents__intro">
+          <h2>Three operating modes</h2>
+          <p>Every workflow in PokoDler maps to one of three clearly separated modes. They share the same pipeline core but differ in source, fan-out strategy, and job scope.</p>
         </div>
         <div class="hub-agents__grid hub-agents__grid--dler">
-          <article class="hub-agent">
-            <p class="hub-agent__eyebrow">⬇ Single Download</p>
-            <p>
-              Paste any YouTube URL, pull it as audio or video. Output lands in an organized local
-              folder, ID3-tagged and ready.
-            </p>
+          <article class="hub-agent" data-reveal="0.10">
+            <p class="hub-agent__eyebrow">⬇ Mode 01 · Single Download</p>
+            <h3>One URL, one file</h3>
+            <p>Paste any YouTube URL. Choose audio or video. The file lands in an organised local folder, ID3-tagged and immediately playable.</p>
+            <ul class="hub-agent__list">
+              <li>Audio extracts to MP3 via FFmpeg at configurable quality.</li>
+              <li>Video saved to an MP4 at best available resolution.</li>
+              <li>Title, artist, and duration tags written automatically using <code>mutagen</code>.</li>
+              <li>Job recorded to <code>downloaded_songs</code> table for history.</li>
+            </ul>
           </article>
-          <article class="hub-agent">
-            <p class="hub-agent__eyebrow">⊞ Playlist Batch</p>
-            <p>
-              Download full YouTube playlists into timestamped, sanitized folders. Concurrent jobs
-              run under a semaphore limit — no resource hammering.
-            </p>
+          <article class="hub-agent" data-reveal="0.14">
+            <p class="hub-agent__eyebrow">⊞ Mode 02 · Playlist Batch</p>
+            <h3>Full playlist, bounded concurrency</h3>
+            <p>Point it at a YouTube playlist and walk away. Concurrent jobs run under a semaphore limit — no resource hammering on large collections.</p>
+            <ul class="hub-agent__list">
+              <li>Downloads into a timestamped, sanitised folder per playlist.</li>
+              <li>Semaphore cap prevents I/O and network saturation.</li>
+              <li>Each item tagged and logged independently — partial runs are safe to resume.</li>
+              <li>Progress surface available via FastAPI status endpoint.</li>
+            </ul>
           </article>
-          <article class="hub-agent">
-            <p class="hub-agent__eyebrow">↔ Spotify Mirror</p>
-            <p>
-              Point it at any Spotify playlist, album, or artist. It fetches metadata, finds each
-              track on YouTube, downloads, converts to MP3, and writes history to the database.
-            </p>
+          <article class="hub-agent" data-reveal="0.18">
+            <p class="hub-agent__eyebrow">↔ Mode 03 · Spotify Mirror</p>
+            <h3>Spotify library → local MP3</h3>
+            <p>The flagship mode: resolve a Spotify source, match every track on YouTube, download and convert, write history. The full pipeline in one flow.</p>
+            <ul class="hub-agent__list">
+              <li>Accepts playlist, album, or artist links as input.</li>
+              <li>OAuth-first with <code>sp_dc</code> cookie fallback for editorial playlists.</li>
+              <li>YouTube Music lookup as a second-pass matcher for better audio candidates.</li>
+              <li>Mirror history persisted to <code>spotify_downloads</code> — already-owned tracks are skipped.</li>
+            </ul>
           </article>
         </div>
       </section>
 
-      <section class="hub-process hub-process--dler" aria-label="The Spotify Mirror Pipeline">
-        <article class="hub-process__intro" data-reveal="0.05">
-          <p class="label">Core pipeline</p>
+      <!-- ── SPOTIFY MIRROR PIPELINE — storyline ── -->
+      <section aria-label="The Spotify Mirror pipeline, step by step">
+        <div class="hub-section-label" data-reveal="0.05">
+          <p class="label">Core pipeline · Spotify Mirror</p>
           <h2>From playlist link to tagged local library</h2>
-          <p>
-            The middle of this product is not a generic downloader. It is a controlled media
-            pipeline that resolves a source, enriches it with metadata, downloads the right asset,
-            and records the job state so the whole flow stays repeatable.
+          <p class="hub-section-label__sub">
+            The pipeline resolves a source, enriches it with metadata, downloads the right asset,
+            and records the job state — making the whole flow repeatable and auditable.
           </p>
-          <ul class="hub-process__summary">
-            <li>Spotify links become structured track batches before any download starts.</li>
-            <li>YouTube matching and audio conversion happen under bounded concurrency.</li>
-            <li>Every finished file is tagged, stored, and written back to PostgreSQL.</li>
-          </ul>
-        </article>
-
-        <div class="hub-process__grid">
-          <article class="hub-process-card" data-reveal="0.1">
-            <p class="hub-process-card__step">01</p>
+        </div>
+        <div class="hub-story hub-story--dler" aria-label="Pipeline steps">
+          <article class="story-card" data-reveal="0.08">
+            <p class="story-card__tag">Step 01 · Input</p>
             <h3>Parse source</h3>
             <p>
               Accept a Spotify URL or URI and classify it as a playlist, album, or artist
-              collection before any job fan-out begins.
+              collection before any job fan-out begins. The type determines the downstream
+              fetch strategy and folder structure.
             </p>
+            <ul class="story-card__list">
+              <li><strong>Playlist:</strong> Fetches ordered tracks, preserves sequence.</li>
+              <li><strong>Album:</strong> Groups by release, tags with album metadata.</li>
+              <li><strong>Artist:</strong> Pulls top tracks or full discography depending on config.</li>
+            </ul>
           </article>
-          <article class="hub-process-card" data-reveal="0.14">
-            <p class="hub-process-card__step">02</p>
-            <h3>Fetch metadata</h3>
+
+          <article class="story-card" data-reveal="0.12">
+            <p class="story-card__tag">Step 02 · Enrichment</p>
+            <h3>Fetch Spotify metadata</h3>
             <p>
-              Pull titles, artists, and duration from Spotify using OAuth first, with
-              <code>sp_dc</code> available when editorial access needs a pragmatic fallback.
+              Pull titles, artists, album art, and duration from the Spotify API using
+              OAuth first-party access, with the <code>sp_dc</code> cookie available
+              as a pragmatic fallback when editorial playlist access needs a second path.
             </p>
+            <ul class="story-card__list">
+              <li>OAuth token managed and refreshed automatically.</li>
+              <li><code>sp_dc</code> fallback unlocks editorial and regional-restricted content.</li>
+              <li>Duration data used downstream to improve YouTube match scoring.</li>
+            </ul>
           </article>
-          <article class="hub-process-card" data-reveal="0.18">
-            <p class="hub-process-card__step">03</p>
+
+          <article class="story-card" data-reveal="0.16">
+            <p class="story-card__tag">Step 03 · Matching</p>
             <h3>Match on YouTube</h3>
             <p>
-              Search YouTube track by track to find the strongest audio candidate, with YouTube
-              Music lookup used when playlist context needs a second pass.
+              Search YouTube track by track to find the strongest audio candidate.
+              YouTube Music lookup is used as a second pass when the standard search
+              returns ambiguous results or live/cover versions.
             </p>
+            <ul class="story-card__list">
+              <li>Candidate scored against duration and title similarity thresholds.</li>
+              <li>YouTube Music API consulted for playlist-context-aware matches.</li>
+              <li>Failed matches logged with reason — never silently skipped.</li>
+            </ul>
           </article>
-          <article class="hub-process-card" data-reveal="0.22">
-            <p class="hub-process-card__step">04</p>
+
+          <article class="story-card" data-reveal="0.20">
+            <p class="story-card__tag">Step 04 · Conversion</p>
             <h3>Download and convert</h3>
             <p>
-              <code>yt-dlp</code> pulls the stream, FFmpeg converts it to MP3, and semaphore caps
-              keep large playlist jobs from flooding the machine.
+              <code>yt-dlp</code> pulls the audio stream and FFmpeg converts it to MP3 at
+              the configured bitrate. A semaphore cap keeps large playlist jobs stable
+              without needing a full job queue infrastructure.
             </p>
+            <ul class="story-card__list">
+              <li>Semaphore limit configurable per run — defaults to 3 concurrent workers.</li>
+              <li>FFmpeg postprocessor handles format conversion and normalization.</li>
+              <li>Output folder named and sanitised deterministically from track metadata.</li>
+            </ul>
           </article>
-          <article class="hub-process-card" data-reveal="0.26">
-            <p class="hub-process-card__step">05</p>
+
+          <article class="story-card" data-reveal="0.24">
+            <p class="story-card__tag">Step 05 · Persistence</p>
             <h3>Tag and persist</h3>
             <p>
-              <code>mutagen</code> writes ID3 tags, then the file path, history, and job state are
-              committed to PostgreSQL so the local library remains queryable.
+              <code>mutagen</code> writes ID3 tags — title, artist, album, and duration — to
+              the finished MP3. The file path, mirror history, and job state are then
+              committed to PostgreSQL so the local library stays queryable and restartable.
+            </p>
+            <ul class="story-card__list">
+              <li>ID3v2 tags written for compatibility with all major media players.</li>
+              <li>Three tables: <code>downloaded_songs</code>, <code>spotify_downloads</code>, <code>jobs</code>.</li>
+              <li>Schema auto-created on first startup — no migration tooling needed.</li>
+              <li>Upsert strategy: re-running a mirror skips already-downloaded tracks.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ── ARCHITECTURE ── -->
+      <section aria-label="PokoDler architecture" data-reveal="0.06">
+        <div class="hub-section-label">
+          <p class="label">Architecture</p>
+          <h2>Layered and separated by concern</h2>
+        </div>
+        <div class="hub-grid hub-grid--dler">
+          <article class="hub-card hub-card--dler">
+            <p class="hub-card__icon" aria-hidden="true">🖥</p>
+            <h3>Frontend</h3>
+            <p>Static HTML / CSS / Vanilla JS. Zero build toolchain, zero npm. Served directly by FastAPI's <code>StaticFiles</code> mount — deployable without a separate frontend environment.</p>
+          </article>
+          <article class="hub-card hub-card--dler">
+            <p class="hub-card__icon" aria-hidden="true">⚡</p>
+            <h3>API Layer</h3>
+            <p>FastAPI routes split across four domains: <code>/downloads</code>, <code>/spotify</code>, <code>/files</code>, and <code>/stats</code>. Clean HTTP boundary with async request handling throughout.</p>
+          </article>
+          <article class="hub-card hub-card--dler">
+            <p class="hub-card__icon" aria-hidden="true">⚙</p>
+            <h3>Service Layer</h3>
+            <p>Download orchestration, Spotify resolution logic, and database access live as independent service modules. Each can be tested and modified without touching the API routes.</p>
+          </article>
+          <article class="hub-card hub-card--dler">
+            <p class="hub-card__icon" aria-hidden="true">🗄</p>
+            <h3>Persistence</h3>
+            <p>PostgreSQL via <code>psycopg2</code>. Three tables handle all state: <code>downloaded_songs</code>, <code>spotify_downloads</code>, and <code>jobs</code>. Schema auto-created on startup.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ── DESIGN DECISIONS ── -->
+      <section aria-label="PokoDler design decisions" data-reveal="0.06">
+        <div class="hub-section-label">
+          <p class="label">Design Decisions</p>
+          <h2>Intentional constraints, not limitations</h2>
+          <p class="hub-section-label__sub">Every major decision in PokoDler was deliberate. Here's the reasoning behind the choices that might look unusual at first glance.</p>
+        </div>
+        <div class="hub-story hub-story--dler hub-story--decisions" aria-label="Design decisions">
+          <article class="story-card" data-reveal="0.08">
+            <p class="story-card__tag">Decision 01</p>
+            <h3>Why no npm or frontend build step?</h3>
+            <p>
+              The frontend is intentionally zero-toolchain. Static HTML, CSS, and vanilla JS served directly by FastAPI. No bundler, no transpiler, no <code>node_modules</code>.
+            </p>
+            <p>
+              This is a deliberate constraint that keeps the project deployable and understandable
+              without a separate frontend environment. The UI's only job is to trigger the
+              pipeline — it doesn't need a framework for that.
+            </p>
+          </article>
+          <article class="story-card" data-reveal="0.12">
+            <p class="story-card__tag">Decision 02</p>
+            <h3>Why two Spotify auth strategies?</h3>
+            <p>
+              The Spotify API restricts editorial playlists behind OAuth scopes that aren't always
+              available in a personal developer app. The <code>sp_dc</code> cookie flow was added
+              as a pragmatic fallback for cases where OAuth doesn't cover the target content.
+            </p>
+            <p>
+              Supporting both means the tool works across more real-world situations —
+              personal playlists via OAuth, editorial and regional content via the fallback.
+            </p>
+          </article>
+          <article class="story-card" data-reveal="0.16">
+            <p class="story-card__tag">Decision 03</p>
+            <h3>Why semaphore-based concurrency, not a job queue?</h3>
+            <p>
+              Unbounded parallel downloads will saturate disk I/O and network bandwidth quickly.
+              A full job queue (Celery, RQ) would add infrastructure overhead for a local tool.
+            </p>
+            <p>
+              A configurable asyncio semaphore cap achieves the same stability guarantee —
+              bounded concurrency, graceful degradation, restartable partial runs — with
+              zero additional dependencies or services to run.
+            </p>
+          </article>
+          <article class="story-card" data-reveal="0.20">
+            <p class="story-card__tag">Decision 04</p>
+            <h3>Why PostgreSQL for a local-only tool?</h3>
+            <p>
+              Download history, job state, and Spotify mirror records need to survive restarts
+              and be queryable. A flat file or SQLite would have worked for simple history,
+              but PostgreSQL gives proper job tracking, progress upserts, and storage stats
+              with almost no overhead for a local setup.
+            </p>
+            <p>
+              The bigger reason: it keeps the project consistent with the rest of the portfolio,
+              where PostgreSQL is the operational spine across all data products.
             </p>
           </article>
         </div>
       </section>
 
-      <section class="hub-grid" aria-label="PokoDler architecture">
-        <article class="hub-card">
-          <h3>Frontend</h3>
-          <p>
-            Static HTML / CSS / JS — no build step, no npm, no runtime framework. Served directly
-            by FastAPI.
-          </p>
-        </article>
-        <article class="hub-card">
-          <h3>API Layer</h3>
-          <p>
-            FastAPI routes split across downloads, Spotify, files, and stats. Clean separation of
-            concerns at the HTTP boundary.
-          </p>
-        </article>
-        <article class="hub-card">
-          <h3>Service Layer</h3>
-          <p>
-            Download orchestration, Spotify logic, and DB access live here as independent service
-            modules.
-          </p>
-        </article>
-        <article class="hub-card">
-          <h3>Persistence</h3>
-          <p>
-            PostgreSQL via psycopg2. Three tables: downloaded_songs, spotify_downloads, jobs.
-            Schema auto-created on startup.
-          </p>
-        </article>
-      </section>
-
-      <section class="hub-grid" aria-label="PokoDler design decisions">
-        <article class="hub-card">
-          <h3>Why no npm?</h3>
-          <p>
-            The frontend is intentionally zero-toolchain. Static HTML, CSS, and JS served directly
-            by FastAPI. No bundler, no transpiler, no node_modules. It's a deliberate constraint
-            that keeps the project deployable and understandable without a separate frontend
-            environment.
-          </p>
-        </article>
-        <article class="hub-card">
-          <h3>Why two Spotify auth strategies?</h3>
-          <p>
-            The Spotify API restricts access to editorial playlists behind OAuth. The sp_dc cookie
-            flow was added as a pragmatic fallback for cases where OAuth isn't the right fit.
-            Supporting both means the tool works in more real-world situations.
-          </p>
-        </article>
-        <article class="hub-card">
-          <h3>Why semaphore-based concurrency?</h3>
-          <p>
-            Unbounded parallel downloads will saturate disk I/O and network quickly. A configurable
-            semaphore cap keeps the system stable under large playlist jobs without needing a full
-            job queue.
-          </p>
-        </article>
-        <article class="hub-card">
-          <h3>Why PostgreSQL for a local tool?</h3>
-          <p>
-            Download history, job state, and mirror records need to survive restarts and be
-            queryable. A flat file would have worked for simple history, but PostgreSQL gives
-            proper job tracking, progress upserts, and storage stats with almost no overhead for a
-            local setup.
-          </p>
-        </article>
-      </section>
-
-      <section class="hub-meta" aria-label="PokoDler project score">
-        <article class="hub-meta__item">
+      <!-- ── PROJECT SCORECARD ── -->
+      <div class="hub-meta hub-meta--dler" data-reveal="0.06">
+        <div class="hub-meta__item hub-meta__item--dler">
+          <p class="label">Role</p>
+          <p>Full-stack Python · Pipeline Design · API Engineering</p>
+        </div>
+        <div class="hub-meta__item hub-meta__item--dler">
+          <p class="label">Timeline</p>
+          <p>2026 — Ongoing</p>
+        </div>
+        <div class="hub-meta__item hub-meta__item--dler">
+          <p class="label">Stack</p>
+          <p>Python · FastAPI · yt-dlp · FFmpeg · PostgreSQL · Spotify API</p>
+        </div>
+        <div class="hub-meta__item hub-meta__item--dler">
           <p class="label">Portfolio Value</p>
-          <p>8 / 10</p>
           <p>
-            Strong backend pipeline, intentional architectural opinions, and a concrete real-world
-            use case. Limited only by the absence of a live demo URL.
+            <strong style="color: #ffd666;">8 / 10</strong> — Strong pipeline, clear architectural opinions,
+            real-world use case. Gap: no live public demo URL.
           </p>
-        </article>
-        <article class="hub-meta__item">
+        </div>
+        <div class="hub-meta__item hub-meta__item--dler">
           <p class="label">Robustness</p>
-          <p>7 / 10</p>
           <p>
-            Clean layered architecture, real concurrency handling, dual auth strategies, and proper
-            persistence. Gaps: no CI, no automated tests, monolithic service structure flagged for
-            future refactor.
+            <strong style="color: #ffd666;">7 / 10</strong> — Layered architecture, dual auth, bounded concurrency,
+            proper persistence. Flagged for future refactor: no CI, no automated tests.
           </p>
-        </article>
-      </section>
+        </div>
+      </div>
 
-      <section class="hub-highlight hub-highlight--cta" aria-label="PokoDler call to action">
+      <!-- ── CTA ── -->
+      <section class="hub-highlight hub-highlight--dler hub-highlight--cta" aria-label="PokoDler call to action" data-reveal="0.06">
         <h2>Want to see the code?</h2>
-        <p>All source on GitHub. MIT licensed. Runs locally in under five minutes.</p>
+        <p>All source on GitHub. MIT licensed. Runs locally in under five minutes on any machine with Python 3.11+ and FFmpeg installed.</p>
         <div class="hub-highlight__cta hub-highlight__cta--row">
-          <a class="hub-cta" href="https://github.com/DantesRevengeReloaded" target="_blank" rel="noreferrer">View on GitHub</a>
-          <a class="hub-cta" href="../index.html#projects">Back to Portfolio</a>
+          <a class="hub-cta hub-cta--dler" href="https://github.com/DantesRevengeReloaded" target="_blank" rel="noreferrer">View on GitHub ↗</a>
+          <a class="hub-cta hub-cta--dler hub-cta--outline" href="../index.html#projects">← Back to Portfolio</a>
         </div>
       </section>
+
     </div>
     <script src="../src/scripts/main.js"></script>
   </body>

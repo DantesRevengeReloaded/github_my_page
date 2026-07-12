@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="PokoSpectrum is an ongoing multi-agent geopolitical and economic analysis pipeline powered by vector RAG and independent specialized personas." />
+    <link rel="canonical" href="https://dantesrevengereloaded.github.io/pages/pokospectrum.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="PokoSpectrum · Project Hub" />
+    <meta property="og:description" content="A project case study for PokoSpectrum, a multi-agent AI system analyzing news through competing geopolitical lenses." />
+    <meta property="og:url" content="https://dantesrevengereloaded.github.io/pages/pokospectrum.html" />
+    <meta property="og:image" content="https://dantesrevengereloaded.github.io/public/images/pokopolitics_logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PokoSpectrum · Project Hub" />
+    <meta name="twitter:description" content="How PokoSpectrum automates multi-perspective geopolitical and economic analysis using RAG and cooperative AI agents." />
+    <meta name="twitter:image" content="https://dantesrevengereloaded.github.io/public/images/pokopolitics_logo.png" />
     <title>PokoSpectrum · Project Hub</title>
     <link rel="icon" href="../src/assets/icons/ksymbol.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../src/styles/main.css" />
@@ -11,144 +22,163 @@
     <div class="hub-shell">
       <header class="hub-header">
         <div>
-          <p class="eyebrow">ongoing project — AI systems / agentic engineering</p>
+          <p class="eyebrow">Project hub · In Development</p>
           <h1>PokoSpectrum</h1>
-          <p class="panel-pill">● IN DEVELOPMENT</p>
           <p class="lede">
-            A multi-agent AI system that reads the world's news and writes geopolitical analysis from
-            competing perspectives — simultaneously.
-          </p>
-          <p class="hub-highlight__cta-note">
-            Not a summarizer. Not a chatbot. A structured intelligence pipeline with opinions.
+            A multi-agent AI system that reads global news and compiles geopolitical and economic analysis 
+            from competing perspectives simultaneously.
           </p>
         </div>
         <a class="hub-back" href="../index.html#projects">← Back to projects</a>
       </header>
 
+      <a
+        class="hub-repo-callout"
+        href="https://github.com/DantesRevengeReloaded/PokoSpectrum"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <div class="hub-repo-callout__media">
+          <img src="../public/images/pokopolitics_logo.png" alt="PokoSpectrum logo" loading="lazy" />
+        </div>
+        <div class="hub-repo-callout__content">
+          <p class="label">PokoSpectrum Repo</p>
+          <span class="hub-repo-callout__cta">
+            Explore the PokoSpectrum repository
+            <span aria-hidden="true">↗</span>
+          </span>
+          <p class="hub-repo-callout__note">
+            The repository houses the news ingestion crawlers, vector index pipelines, and the orchestration scripts
+            directing autonomous agent personas.
+          </p>
+        </div>
+      </a>
+
       <section class="hub-highlight">
-        <p class="label">Section 01 — The Problem</p>
         <h2>Why one-angle analysis fails in geopolitics</h2>
         <p>
-          Most news analysis tools give you one voice. One summary. One angle.
+          Most news analysis tools give you one voice. One summary. One angle. Geopolitical reality doesn't work that way. 
+          The same event looks completely different from Washington, Moscow, Brussels, or Beijing.
         </p>
+        <ul class="hub-highlight__list">
+          <li>Understanding the full picture means holding multiple informed perspectives at once.</li>
+          <li>Manual comparison across international sources is cognitively expensive and time-consuming.</li>
+          <li>Standard language model summaries often wash out the nuance, producing neutral, unhelpful outputs.</li>
+          <li>PokoSpectrum retains the friction, bias, and distinct framing of each major geopolitical lens.</li>
+        </ul>
         <p>
-          Geopolitical reality doesn't work that way. The same event looks completely different from
-          Washington, Moscow, Brussels, or Beijing. Understanding the full picture means holding
-          multiple informed perspectives at once — and that's cognitively expensive for a human
-          analyst to do at speed.
+          Want to explore the live article dataset or run the ingestion script?
         </p>
-        <p>PokoSpectrum automates that process.</p>
+        <div class="hub-highlight__cta">
+          <a class="hub-cta" href="../index.html#contact">Request project access</a>
+        </div>
       </section>
 
-      <section class="hub-agents">
+      <section class="hub-agents" aria-label="PokoSpectrum architectural pillars">
         <div class="hub-agents__intro">
-          <p class="label">Section 02 — What It Is</p>
           <h2>Three pillars, one intelligence pipeline</h2>
+          <p>
+            PokoSpectrum relies on a decoupled architecture to crawl the web, embed context, and orchestrate independent reasoning.
+          </p>
         </div>
-        <div class="hub-agents__grid">
-          <article class="hub-agent">
+        <div class="hub-agents__grid hub-agents__grid--spectrum">
+          <article class="hub-agent" data-reveal="0.05">
             <p class="hub-agent__eyebrow">01</p>
             <h3>Multi-Agent Architecture</h3>
-            <p>
-              A system of specialized AI agents, each operating from a distinct geopolitical
-              perspective. They don't agree. They're not supposed to.
-            </p>
+            <p>A system of specialized AI agents, each operating from a distinct geopolitical perspective. They don't agree.</p>
+            <ul class="hub-agent__list">
+              <li>Independent personas represent Washington, Moscow, Brussels, and Beijing views.</li>
+              <li>Agent system prompts are tuned to capture cultural biases and strategic agendas.</li>
+              <li>Compiles contrasting reports side-by-side without blending them into a single take.</li>
+            </ul>
           </article>
-          <article class="hub-agent">
+          <article class="hub-agent" data-reveal="0.12">
             <p class="hub-agent__eyebrow">02</p>
             <h3>RAG-Powered Knowledge</h3>
-            <p>
-              Agents are grounded in retrieved, current information — not just model memory. The
-              system ingests live news, embeds it, and surfaces the right context to the right agent
-              at query time.
-            </p>
+            <p>Agents are grounded in retrieved, current information — not just model pre-training memory.</p>
+            <ul class="hub-agent__list">
+              <li>Continuous crawlers process RSS feeds, global newspapers, and government releases.</li>
+              <li>Vector indexes generate dense semantic embeddings for accurate content matching.</li>
+              <li>Fact check loops verify references to reduce hallucination and retain data links.</li>
+            </ul>
           </article>
-          <article class="hub-agent">
+          <article class="hub-agent" data-reveal="0.2">
             <p class="hub-agent__eyebrow">03</p>
             <h3>Structured Article Output</h3>
-            <p>
-              The end product isn't raw data or bullet points. It's publication-ready analytical
-              writing — structured, opinionated, and sourced.
-            </p>
+            <p>The output isn't raw data or chat strings. It's publication-ready analytical writing.</p>
+            <ul class="hub-agent__list">
+              <li>Synthesizes independent perspectives into clean, formatted markdown reports.</li>
+              <li>Hyperlinks original citations alongside generated claims for full auditable traceback.</li>
+              <li>Exposes structured JSON data for easy downstream integration or custom rendering.</li>
+            </ul>
           </article>
         </div>
       </section>
 
-      <section>
-        <p class="label">Section 03 — How It Thinks</p>
-        <div class="hub-grid">
-          <article class="hub-card">
-            <p class="hub-agent__eyebrow">01 — Ingest</p>
-            <p>
-              The pipeline monitors world news sources continuously, processes incoming articles, and
-              indexes them into a vector store.
-            </p>
-          </article>
-          <article class="hub-card">
-            <p class="hub-agent__eyebrow">02 — Retrieve</p>
-            <p>
-              When an event is flagged for analysis, each agent retrieves the context most relevant to
-              its perspective from the shared knowledge base.
-            </p>
-          </article>
-          <article class="hub-card">
-            <p class="hub-agent__eyebrow">03 — Analyze</p>
-            <p>
-              Independent agents reason over the retrieved context through their own geopolitical lens
-              — producing divergent takes on the same event.
-            </p>
-          </article>
-          <article class="hub-card">
-            <p class="hub-agent__eyebrow">04 — Synthesize</p>
-            <p>
-              Outputs are compiled into a structured multi-perspective article, ready for review or
-              publication.
-            </p>
-          </article>
+      <div class="hub-meta">
+        <div class="hub-meta__item">
+          <p class="label">Role</p>
+          <p>AI Systems Design · Data Analysis · Prompt Engineering</p>
         </div>
-      </section>
+        <div class="hub-meta__item">
+          <p class="label">Timeline</p>
+          <p>2026 — Ongoing</p>
+        </div>
+        <div class="hub-meta__item">
+          <p class="label">Stack</p>
+          <p>Python · PostgreSQL · FastAPI · Vector RAG</p>
+        </div>
+      </div>
 
-      <section class="hub-card">
-        <p class="label">Section 04 — Stack &amp; Approach</p>
-        <p>
-          Python · RAG Architecture · Vector Embeddings · Agentic Orchestration · FastAPI ·
-          PostgreSQL · LLM APIs · News Ingestion Pipeline
-        </p>
-        <p class="hub-highlight__cta-note">
-          Built entirely in Python. Designed for extensibility — new agents, new perspectives, new
-          sources can be added without restructuring the core.
-        </p>
-      </section>
+      <section class="hub-story hub-story--spectrum" aria-label="PokoSpectrum system story">
+        <article class="story-card" data-reveal="0.05">
+          <p class="story-card__tag">Pipeline Flow</p>
+          <h3>Four stages of perspective-aware processing</h3>
+          <p>
+            The core loop transforms raw media signals into a comparative intelligence report through decoupled, reliable stages:
+          </p>
+          <ul class="story-card__list">
+            <li><strong>Ingest:</strong> News crawlers monitor feed sources and scrape clean article bodies.</li>
+            <li><strong>Retrieve:</strong> The system embeds query content and fetches target articles from the vector store.</li>
+            <li><strong>Analyze:</strong> Divergent agent personas evaluate the news through their specific lens.</li>
+            <li><strong>Synthesize:</strong> The synthesis engine organizes the takes into a single comparative layout.</li>
+          </ul>
+        </article>
 
-      <section class="hub-grid">
-        <article class="hub-card">
-          <p class="label">Section 05 — Current Status</p>
-          <h3>What's built</h3>
+        <article class="story-card" data-reveal="0.12">
+          <p class="story-card__tag">Tech Stack</p>
+          <h3>Python-first agentic infrastructure</h3>
           <p>
-            Core ingestion pipeline, vector retrieval layer, initial agent framework, and article
-            generation workflow.
+            Built entirely in Python to facilitate rapid iteration of prompt sequences, agent parameters, and vector operations:
           </p>
+          <ul class="story-card__list">
+            <li><strong>Vector Database:</strong> Stores dense embeddings for contextual semantic retrieval.</li>
+            <li><strong>FastAPI Layer:</strong> Exposes ingestion triggers and query endpoints for downstream clients.</li>
+            <li><strong>PostgreSQL Spine:</strong> Stores historical articles, agent settings, and generated outputs.</li>
+          </ul>
         </article>
-        <article class="hub-card">
-          <p class="label">In progress</p>
-          <h3>What is being refined now</h3>
+
+        <article class="story-card" data-reveal="0.2">
+          <p class="story-card__tag">Roadmap · In Development</p>
+          <h3>Refining agentic output and broadening data sources</h3>
           <p>
-            Agent perspective refinement, output quality evaluation, and source coverage expansion.
+            PokoSpectrum is actively running in development, with core pipelines established and web-facing consoles under review:
           </p>
-        </article>
-        <article class="hub-card">
-          <p class="label">Next</p>
-          <h3>What follows</h3>
-          <p>
-            A web-facing interface to browse generated articles by region, topic, and perspective.
-          </p>
+          <ul class="story-card__list">
+            <li><strong>What's Built:</strong> Core news crawler, vector retrieval layer, and basic agent synthesis.</li>
+            <li><strong>In Progress:</strong> Refining agent personalities, balancing perspectives, and tuning RAG windows.</li>
+            <li><strong>Next Steps:</strong> A frontend dashboard to explore regional reports, timeline views, and bias metrics.</li>
+          </ul>
         </article>
       </section>
 
       <section class="hub-highlight">
         <p class="lede">"If you're interested in the architecture, the agent design, or the problem space — let's talk."</p>
-        <a class="hub-cta" href="../index.html#contact">Contact / LinkedIn</a>
+        <div class="hub-highlight__cta">
+          <a class="hub-cta" href="../index.html#contact">Contact / LinkedIn</a>
+        </div>
       </section>
     </div>
+    <script src="../src/scripts/main.js"></script>
   </body>
 </html>
